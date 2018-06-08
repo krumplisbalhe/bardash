@@ -8,6 +8,6 @@ console.log(jsondata);
 let bar = document.querySelector(".bar");
 console.log(bar);
 
-bar.textContent = jsondata.bartenders["0"].name;
+bar.textContent = jsondata.bartenders["0"];
 
 
