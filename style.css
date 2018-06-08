@@ -26,3 +26,9 @@ border: 2px solid pink;
     align-items: center;
     align-content: space-between;
 }
+
+.beerinfo>div{
+    flex-grow: 1;
+  width: 33%;
+  height: 100px;
+}

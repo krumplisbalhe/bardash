@@ -1,44 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
+        crossorigin="anonymous">
 </head>
+
 <body>
-<div class="grid-container">
-<div class="barinfo">
-        <h1 id="barname">hghg</h1>
-        <h2 id="closing">12:00</h2>
-        <h3 id="currenttime">12:09</h3>
-    </div>
-<div class="queue"></div>
-<div class="bartenders">
-    </div>
+    <div class="grid-container">
+        <div class="barinfo">
+            <h1 id="barname"></h1>
+            <h2 id="closing"></h2>
+            <h3 id="currenttime"></h3>
+        </div>
+        <div class="queue"></div>
 
-<template class="bartenders-temp">
-<h2 class="name"></h2>
-<p class="status"></p>
 
-</template>
-
+        <div class="bartenders">
+            <template class="bartenders-temp">
+                <h2 class="name"></h2>
+                <p class="status"></p>
+            </template>
+        </div>
 
         <div class="beerinfo">
-            <div class="onebeer"></div>
-            <div class="onebeer"></div>
-            <div class="onebeer"></div>
-            <div class="onebeer"></div>
-            <div class="onebeer"></div>
-            <div class="onebeer"></div>
+            <template class="beers-temp">
+                <div class="onebeer">
+                    <p class="levelofbeer"></p>
+                    <h4 class="beername"></h4>
+                    <p class="beershortdescription"></p>
+
+                </div>
+            </template>
         </div>
-</div>
+    </div>
 
 
-  <script src="http://petlatkea.dk/2018/front/foobar.js"></script>  
-  <script src="main.js"></script>
+    <script src="http://petlatkea.dk/2018/front/foobar.js"></script>
+    <script src="main2.js"></script>
 
 </body>
 
