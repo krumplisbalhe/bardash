@@ -1,8 +1,10 @@
+
 "use strict";
 let data = FooBar.getData();
 
 //transfer data to JSON
 const jsondata = JSON.parse(data);
+<<<<<<< HEAD
 
 function show() {
     console.log(jsondata);
@@ -18,3 +20,8 @@ function show() {
 };
 
 show();
+=======
+console.log(jsondata);
+
+
+>>>>>>> db79db991f2d01f7bf0e7f5d31a3fb313e68fa74
