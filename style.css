@@ -1,0 +1,28 @@
+.barinfo { grid-area: barinfo; }
+.queue { grid-area: queue; }
+.bartenders { grid-area: bartenders; }
+.beerinfo { grid-area: beerinfo; }
+
+.grid-container {
+  display: grid;
+  grid-template-areas:
+    'barinfo queue queue bartenders'
+    'beerinfo beerinfo beerinfo bartenders'
+    'beerinfo beerinfo beerinfo bartenders'
+    'beerinfo beerinfo beerinfo bartenders';
+  grid-gap: 10px;
+  padding: 10px;
+}
+div {
+border: 2px solid pink;
+  padding: 20px 0;
+  font-size: 30px;
+}
+
+.beerinfo{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    align-content: space-between;
+}
