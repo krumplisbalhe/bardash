@@ -24,17 +24,13 @@ function show() {
     const hours = now.getHours();
     const minutes = now.getMinutes();
     document.querySelector("#currenttime").textContent = hours + ":" + minutes;
-  
-
-};
-
-show();
-
-
-document.querySelector(".queue").textContent = jsondata.queue.length;
+    document.querySelector(".queue").textContent = jsondata.queue.length;
     let mytemplate = document.querySelector(".bartenders-temp").content;
+    
+    
     jsondata.bartenders.forEach((e) => {
-    let clone = mytemplate.cloneNode(true);
+    let clone = mytemplate.cl
+    oneNode(true);
 
    console.log(clone.querySelector(".name").textContent = e.name);
     clone.querySelector(".status").textContent = e.status;
@@ -42,6 +38,13 @@ document.querySelector(".queue").textContent = jsondata.queue.length;
     })
 
 }
+show();
+
+};
+
+
+
+
 
 
 setInterval(
