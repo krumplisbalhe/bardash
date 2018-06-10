@@ -16,15 +16,14 @@ function loadJson() {
     const minutes = now.getMinutes();
     document.querySelector("#currenttime").textContent = hours + ":" + minutes;
     document.querySelector(".queue").textContent = jsondata.queue.length;
+
     let mytemplate = document.querySelector(".bartenders-temp").content;
-
-
     document.querySelector(".bartenders").textContent = '';
     jsondata.bartenders.forEach((e) => {
         let clone = mytemplate.cloneNode(true);
-        console.log(e.name);
         clone.querySelector(".name").textContent = e.name;
         clone.querySelector(".status").textContent = e.status;
+        clone.querySelector(".statusdetail").textContent = e.statusDetail;
         document.querySelector(".bartenders").appendChild(clone);
     })
 
@@ -35,12 +34,16 @@ function loadJson() {
         clone.querySelector(".beername").textContent = e.beer;
         clone.querySelector(".levelofbeer").textContent = (e.level / e.capacity) * 100;
         //clone.querySelector(".beershortdescription").textContent = ;
-        console.log(e);
+       // console.log(e);
         document.querySelector(".beerinfo").appendChild(clone);
 
 
 
     })
+
+    function beerChecker(){
+
+    }
 
 
 }
