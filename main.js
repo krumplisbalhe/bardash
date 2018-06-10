@@ -53,7 +53,7 @@ function loadJson() {
 
 
 
-    let mytemplate = document.querySelector(".bartenders-temp").content;
+ let mytemplate = document.querySelector(".bartenders-temp").content;
     document.querySelector(".bartenders").textContent = '';
     jsondata.bartenders.forEach((e) => {
         let clone = mytemplate.cloneNode(true);
@@ -64,13 +64,50 @@ function loadJson() {
         document.querySelector(".bartenders").appendChild(clone);
     })
 
-    /*let storageTemplate = document.querySelector(".storage-temp").content;
-    document.querySelector(".storage").textContent = '';
-    jsondata.storage.forEach((e) => {
+    let storageTemplate = document.querySelector(".storage-temp").content;
+    //document.querySelector(".storage").textContent = '';
+jsondata.storage.forEach((e) => {
         let clone = storageTemplate.cloneNode(true);
        let amount = clone.querySelector(".beeramount").textContent = e.amount;
-        document.querySelector(".storage").appendChild(clone);
-    })*/
+       // document.querySelector(".storage").appendChild(clone)
+       console.log(amount);
+
+
+       const ChartCanva2 = document.getElementById("myChart2");
+       const myChart2 = new Chart(ChartCanva2, {
+           type: 'bar',
+           data: {
+               labels: ["lala", "Being served","sth"],
+               datasets: [{
+                   data: [amount],
+                   backgroundColor: [
+                       '#ee609c',
+                       '#b966d6',
+                       '#b966d6',
+                   ],
+                   borderColor: [
+                      'transparent',
+                      'transparent',
+                      'transparent'
+                   ],
+                   borderWidth: 1
+               }]
+           },
+           options: {
+               scales: {
+                   xAxes: [{
+                       display: true
+                    }],
+                    yAxes: [{
+                          display: true
+                    }]
+               }
+           }
+       });
+   
+    
+    });
+      
     
       
     let beersTemplate = document.querySelector(".beers-temp").content;
@@ -86,37 +123,7 @@ function loadJson() {
 
     })
 
-        const ChartCanva2 = document.getElementById("myChart2");
-    const myChart2 = new Chart(ChartCanva2, {
-        type: 'bar',
-        data: {
-            labels: ["lala", "Being served","sth"],
-            datasets: [{
-                data: ['2','3','5'],
-                backgroundColor: [
-                    '#ee609c',
-                    '#b966d6',
-                    '#b966d6',
-                ],
-                borderColor: [
-                   'transparent',
-                   'transparent',
-                   'transparent'
-                ],
-                borderWidth: 1
-            }]
-        },
-        options: {
-            scales: {
-                xAxes: [{
-                    display: true
-                 }],
-                 yAxes: [{
-                       display: true
-                 }]
-            }
-        }
-    });
+  
     function beerChecker(){
 
     }
