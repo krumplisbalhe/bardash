@@ -27,7 +27,7 @@ body {
 
 .grid-container {
   display: grid;
-  grid-template-areas: 'barinfo queue queue bartenders' 'beerinfo beerinfo beerinfo bartenders' 'beerinfo beerinfo beerinfo bartenders' 'beerinfo beerinfo beerinfo bartenders';
+  grid-template-areas: 'barinfo barinfo queue queue bartenders bartenders' 'beerinfo beerinfo beerinfo beerinfo bartenders bartenders' 'beerinfo beerinfo beerinfo beerinfo bartenders bartenders' 'beerinfo beerinfo beerinfo beerinfo bartenders bartenders';
   grid-gap: 10px;
   padding: 10px;
   background-color: #0e131a;
@@ -74,8 +74,9 @@ div:not(.beerinfo){
 
 .donutcontainer{
   position: relative;
-  height: 20vh;
-  width: 20vw;
+  height: 30vh;
+  width: 30vw;
+  
 }
 
 /* The Modal (background) */
