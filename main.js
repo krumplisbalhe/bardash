@@ -46,7 +46,9 @@ function loadJson() {
                     display: false
                 }]
             }
+        
         }
+        
     });
 
 
