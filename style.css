@@ -32,3 +32,8 @@ border: 2px solid pink;
   width: 33%;
   height: 100px;
 }
+
+#myChart{
+  width: 200px;
+  height: 200px;
+}
