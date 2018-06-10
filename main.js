@@ -20,35 +20,35 @@ function loadJson() {
     const queue = document.querySelector(".number1").textContent = jsondata.queue.length;
     const serving = document.querySelector(".number2").textContent = jsondata.serving.length;
     const ChartCanva = document.getElementById("myChart");
-const myChart = new Chart(ChartCanva, {
-    type: 'doughnut',
-    data: {
-        labels: ["Queued", "Being served"],
-        datasets: [{
-            data: [queue, serving],
-            backgroundColor: [
-                '#ee609c',
-                '#b966d6',
-            ],
-            borderColor: [
-               'transparent',
-               'transparent'
-            ],
-            borderWidth: 1
-        }]
-    },
-    options: {
-        scales: {
-            xAxes: [{
-                display: false
-             }],
-             yAxes: [{
-                   display: false
-             }]
+    const myChart = new Chart(ChartCanva, {
+        type: 'doughnut',
+        data: {
+            labels: ["Queued", "Being served"],
+            datasets: [{
+                data: [queue, serving],
+                backgroundColor: [
+                    '#ee609c',
+                    '#b966d6',
+                ],
+                borderColor: [
+                    'transparent',
+                    'transparent'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                xAxes: [{
+                    display: false
+                }],
+                yAxes: [{
+                    display: false
+                }]
+            }
         }
-    }
-});
-  
+    });
+
 
 
     let mytemplate = document.querySelector(".bartenders-temp").content;
@@ -75,10 +75,6 @@ const myChart = new Chart(ChartCanva, {
 
 
     })
-
-    function beerChecker(){
-
-    }
 
 
 }
