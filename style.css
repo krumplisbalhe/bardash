@@ -60,7 +60,11 @@ div:not(.beerinfo){
 }
 
 #myChart {
-  width: 200px;
-  height: 200px;
   pointer-events:none;
+}
+
+.donutcontainer{
+  position: relative;
+  height: 20vh;
+  width: 40vw;
 }

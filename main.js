@@ -22,6 +22,7 @@ function loadJson() {
     const ChartCanva = document.getElementById("myChart");
     const myChart = new Chart(ChartCanva, {
         type: 'doughnut',
+        responsive: true,
         data: {
             labels: ["Queued", "Being served"],
             datasets: [{
