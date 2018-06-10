@@ -1,6 +1,7 @@
 body {
   background-color: #0e131a;
   color: white;
+  border: solid 1px pink;
 }
 
 .barinfo {
