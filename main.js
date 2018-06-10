@@ -16,6 +16,7 @@ function loadJson() {
     const hours = now.getHours();
     const minutes = now.getMinutes();
     document.querySelector("#currenttime").textContent = hours + ":" + minutes;
+
     const queue = document.querySelector(".number1").textContent = jsondata.queue.length;
     const serving = document.querySelector(".number2").textContent = jsondata.serving.length;
     const ChartCanva = document.getElementById("myChart");
@@ -48,15 +49,16 @@ const myChart = new Chart(ChartCanva, {
     }
 });
   
+
+
     let mytemplate = document.querySelector(".bartenders-temp").content;
-
-
     document.querySelector(".bartenders").textContent = '';
     jsondata.bartenders.forEach((e) => {
         let clone = mytemplate.cloneNode(true);
-//console.log(e.name);
+
         clone.querySelector(".name").textContent = e.name;
         clone.querySelector(".status").textContent = e.status;
+        clone.querySelector(".statusdetail").textContent = e.statusDetail;
         document.querySelector(".bartenders").appendChild(clone);
     })
 
@@ -67,11 +69,16 @@ const myChart = new Chart(ChartCanva, {
         clone.querySelector(".beername").textContent = e.beer;
         clone.querySelector(".levelofbeer").textContent = (e.level / e.capacity) * 100;
         //clone.querySelector(".beershortdescription").textContent = ;
+
         document.querySelector(".beerinfo").appendChild(clone);
 
 
 
     })
+
+    function beerChecker(){
+
+    }
 
 
 }
