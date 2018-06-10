@@ -16,7 +16,6 @@ function loadJson() {
     const hours = now.getHours();
     const minutes = now.getMinutes();
     document.querySelector("#currenttime").textContent = "Current time: " + hours + ":" + minutes;
-
     const queue = jsondata.queue.length;
     const serving = jsondata.serving.length;
     const ChartCanva = document.getElementById("myChart");
@@ -125,18 +124,40 @@ function loadJson() {
         clone.querySelector(".levelofbeer").textContent = (e.level / e.capacity) * 100;
         //clone.querySelector(".beershortdescription").textContent = ;
 
+        let modal = clone.querySelector('#myModal');
+        clone.querySelector("#myBtn").addEventListener("click", openModal);
+        clone.querySelector(".close").addEventListener("click", closeModal);
 
         document.querySelector(".beerinfo").appendChild(clone);
+
+        function openModal() {
+        modal.style.display = "block";
+        }
+        function closeModal() {
+            modal.style.display = "none";
+        }
+        
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+// When the user clicks on <span> (x), close the modal
 
 
 
     })
     
 
+    }})
+
+
    
 
 
 }
+
+
 setInterval(
     loadJson,
     10000);
