@@ -10,21 +10,21 @@ function loadJson() {
 
     console.log(jsondata);
 
-    document.querySelector("#barname").textContent = jsondata.bar.name;
-    document.querySelector("#closing").textContent = jsondata.bar.closingTime;
+    document.querySelector("#barname").textContent = "Welcome to " + jsondata.bar.name;
+    document.querySelector("#closing").textContent = "Closing time: " + jsondata.bar.closingTime;
     const now = new Date();
     const hours = now.getHours();
     const minutes = now.getMinutes();
-    document.querySelector("#currenttime").textContent = hours + ":" + minutes;
+    document.querySelector("#currenttime").textContent = "Current time: " + hours + ":" + minutes;
 
-    const queue = document.querySelector(".number1").textContent = jsondata.queue.length;
-    const serving = document.querySelector(".number2").textContent = jsondata.serving.length;
+    const queue = jsondata.queue.length;
+    const serving = jsondata.serving.length;
     const ChartCanva = document.getElementById("myChart");
     const myChart = new Chart(ChartCanva, {
         type: 'doughnut',
         responsive: true,
         data: {
-            labels: ["Queued", "Being served"],
+            labels: [jsondata.queue.length + " standing in the queue", jsondata.serving.length +" being served"],
             datasets: [{
                 data: [queue, serving],
                 backgroundColor: [
