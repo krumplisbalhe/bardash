@@ -40,8 +40,16 @@ div {
 }
 
 .beerinfo>div{
+
   width: 49%;
   height: 200px;
   justify-content: space-around;
   margin-bottom: 20px;
+
+
+
+#myChart{
+  width: 200px;
+  height: 200px;
+
 }
