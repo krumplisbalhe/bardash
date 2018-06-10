@@ -18,8 +18,8 @@ function loadJson() {
     document.querySelector("#currenttime").textContent = hours + ":" + minutes;
     const queue = document.querySelector(".number1").textContent = jsondata.queue.length;
     const serving = document.querySelector(".number2").textContent = jsondata.serving.length;
-    var ctx = document.getElementById("myChart");
-var myChart = new Chart(ctx, {
+    const ChartCanva = document.getElementById("myChart");
+const myChart = new Chart(ChartCanva, {
     type: 'doughnut',
     data: {
         labels: ["Queued", "Being served"],
