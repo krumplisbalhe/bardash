@@ -1,11 +1,16 @@
 body {
   background-color: #0e131a;
   color: white;
-  border: solid 1px pink;
+  font-family: 'Roboto', sans-serif;
 }
 
 .barinfo {
   grid-area: barinfo;
+  text-align: center;
+}
+
+#barname{
+  color: grey;
 }
 
 .queue {
@@ -34,7 +39,6 @@ body {
 
 div {
   padding: 20px 0;
-  font-size: 20px;
   background: #252c35;
   border-radius: 15px;
 }
@@ -60,10 +64,17 @@ div:not(.beerinfo){
 }
 
 #myChart {
-  width: 200px;
-  height: 200px;
   pointer-events:none;
 }
+
 .logo{
   width: 10%;
   margin: 1vw;}
+
+
+.donutcontainer{
+  position: relative;
+  height: 20vh;
+  width: 20vw;
+}
+
