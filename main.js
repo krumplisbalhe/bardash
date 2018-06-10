@@ -24,7 +24,7 @@ function loadJson() {
         type: 'doughnut',
         responsive: true,
         data: {
-            labels: [jsondata.queue.length + " standing in the queue", jsondata.serving.length +" being served"],
+            labels: ["Standing in the queue: " + jsondata.queue.length, "Being served: " + jsondata.serving.length],
             datasets: [{
                 data: [queue, serving],
                 backgroundColor: [
@@ -46,15 +46,21 @@ function loadJson() {
                 yAxes: [{
                     display: false
                 }]
+
+            },
+            legend: {
+                labels: {
+                    fontColor: '#FFFFFF',
+                    fontFamily: 'Roboto'}
+
             }
-        
         }
-        
+
     });
 
 
 
- let mytemplate = document.querySelector(".bartenders-temp").content;
+    let mytemplate = document.querySelector(".bartenders-temp").content;
     document.querySelector(".bartenders").textContent = '';
     jsondata.bartenders.forEach((e) => {
         let clone = mytemplate.cloneNode(true);
@@ -67,50 +73,50 @@ function loadJson() {
 
     let storageTemplate = document.querySelector(".storage-temp").content;
     //document.querySelector(".storage").textContent = '';
-jsondata.storage.forEach((e) => {
+    jsondata.storage.forEach((e) => {
         let clone = storageTemplate.cloneNode(true);
-       let amount = clone.querySelector(".beeramount").textContent = e.amount;
-       // document.querySelector(".storage").appendChild(clone)
-       console.log(amount);
+        let amount = clone.querySelector(".beeramount").textContent = e.amount;
+        // document.querySelector(".storage").appendChild(clone)
+        console.log(amount);
 
 
-       const ChartCanva2 = document.getElementById("myChart2");
-       const myChart2 = new Chart(ChartCanva2, {
-           type: 'bar',
-           data: {
-               labels: ["lala", "Being served","sth"],
-               datasets: [{
-                   data: [amount],
-                   backgroundColor: [
-                       '#ee609c',
-                       '#b966d6',
-                       '#b966d6',
-                   ],
-                   borderColor: [
-                      'transparent',
-                      'transparent',
-                      'transparent'
-                   ],
-                   borderWidth: 1
-               }]
-           },
-           options: {
-               scales: {
-                   xAxes: [{
-                       display: true
+        const ChartCanva2 = document.getElementById("myChart2");
+        const myChart2 = new Chart(ChartCanva2, {
+            type: 'bar',
+            data: {
+                labels: ["lala", "Being served", "sth"],
+                datasets: [{
+                    data: [amount],
+                    backgroundColor: [
+                        '#ee609c',
+                        '#b966d6',
+                        '#b966d6',
+                    ],
+                    borderColor: [
+                        'transparent',
+                        'transparent',
+                        'transparent'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    xAxes: [{
+                        display: true
                     }],
                     yAxes: [{
-                          display: true
+                        display: true
                     }]
-               }
-           }
-       });
-   
-    
+                }
+            }
+        });
+
+
     });
-      
-    
-      
+
+
+
     let beersTemplate = document.querySelector(".beers-temp").content;
     document.querySelector(".beerinfo").textContent = '';
     jsondata.taps.forEach((e) => {
@@ -118,16 +124,16 @@ jsondata.storage.forEach((e) => {
         clone.querySelector(".beername").textContent = e.beer;
         clone.querySelector(".levelofbeer").textContent = (e.level / e.capacity) * 100;
         //clone.querySelector(".beershortdescription").textContent = ;
+
+
         document.querySelector(".beerinfo").appendChild(clone);
 
 
 
     })
+    
 
-  
-    function beerChecker(){
-
-    }
+   
 
 
 }
