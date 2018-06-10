@@ -7,10 +7,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
-        crossorigin="anonymous">
 </head>
 
 <body>
+    <img class="logo" src="img/foobar.png">
     <div class="grid-container">
         <div class="barinfo">
             <h1 id="barname"></h1>
@@ -33,6 +33,13 @@
             <p class="statusdetail"></p>
         </template>
 
+        <div class="storage">
+                <canvas id="myChart2"></canvas>
+        </div>
+        
+        <template class="storage-temp">
+        <p class="beeramount"></p>
+        </template>
 
         <div class="beerinfo">
         </div>
@@ -49,7 +56,7 @@
 
 
     <script src="http://petlatkea.dk/2018/front/foobar.js"></script>
-    <script src="node_modules/chart.js/dist/Chart.js"></script>
+    <script src="Chart.js"></script>
     <script src="main.js"></script>
 
 </body>
