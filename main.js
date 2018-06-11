@@ -121,6 +121,7 @@ console.log(myarray);
         clone.querySelector("#myBtn").setAttribute("data-id", e.beer); 
         clone.querySelector(".beername").textContent = e.beer;
         clone.querySelector(".levelofbeer").textContent = (e.level / e.capacity) * 100;
+
         //clone.querySelector(".beershortdescription").textContent = ;
 
         clone.querySelector("#myBtn").addEventListener("click", openModal);
@@ -135,11 +136,13 @@ console.log(myarray);
         window.onclick = function(event) {
             if (event.target == modal) {
                 modal.style.display = "none";
+
             }
         // When the user clicks on <span> (x), close the modal
     
 
     }})
+
 }
 
 let modal = document.querySelector('#myModal');
@@ -157,6 +160,8 @@ jsondata.beertypes.forEach((e) => {
 function closeModal() {
         modal.style.display = "none";
     }
+
+
 
 setInterval(
     loadJson,
