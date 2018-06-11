@@ -18,6 +18,8 @@ body {
 
 .storage{
   grid-area: storage;
+  width: 600px;
+  height: 300px;
 }
 
 
@@ -84,12 +86,16 @@ body {
   margin-bottom: 20px;
 }
 
-/* GRIDS */
+/* GRIDS 
 
-
+.barcontainer{
+  position: relative;
+  max-width: 800px;
+  max-height: 200px;
+}*/
 #myChart2{
   height: 200px;
-  width: 700px;
+  width:600px;
 }
 
 .logo{

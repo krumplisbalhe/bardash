@@ -1,6 +1,7 @@
 "use strict";
 document.addEventListener("DOMContentLoaded", loadJson);
-let myarray = [];
+let storageArray= [];
+let nameArray = [];
 let jsondata;
 
 function loadJson() {
@@ -70,65 +71,83 @@ function loadJson() {
         document.querySelector(".bartenders").appendChild(clone);
        
         if (e.statusDetail === "waiting"){
-          console.log("waiting");
           document.querySelector(".workingpic").style.display = "none";
           document.querySelector(".kegpic").style.display = "none";
         }
         else if(e.statusDetail === "replaceKeg"){
-console.log("replace keg");
+
         }
         else{
-            console.log("working");
+           
         }
     })
 
     let storageTemplate = document.querySelector(".storage-temp").content;
     //document.querySelector(".storage").textContent = '';
     
-    myarray = [];
-
+    storageArray = [];
+    nameArray = [];
     jsondata.storage.forEach((e) => {
-       myarray.push(e.amount);
+       storageArray.push(e.amount);
+       nameArray.push(e.name);
         //let amount = clone.querySelector(".beeramount").textContent = e.amount;
         // document.querySelector(".storage").appendChild(clone)
        // console.log(amount);
     });
-    const ChartCanva2 = document.getElementById("myChart2");
+  
+    const ChartCanva2 = document.getElementById("myChart2").getContext("2d");
+    let gradientStroke = ChartCanva2.createLinearGradient(500, 0, 100, 0);
+    gradientStroke.addColorStop(0, "#80b6f4");
+    gradientStroke.addColorStop(1, "#f49080");
+
     const myChart2 = new Chart(ChartCanva2, {
-        type: 'bar',
+        type: 'horizontalBar',
         data: {
-            labels: ["lala", "...", "sth", "lala", "Being served", "sth"],
+            labels: nameArray,
             datasets: [{
-                data: myarray,
-                backgroundColor: [
-                    '#ee609c',
-                    '#b966d6',
-                    '#b966d6',
-                ],
-                borderColor: [
-                    'transparent',
-                    'transparent',
-                    'transparent'
-                ],
-                borderWidth: 1
+                label: "Beer avability",
+                data: storageArray,
+                borderColor: gradientStroke,
+                pointHoverBorderWidth: 1,
+                pointRadius: 3,
+                borderWidth:5,
+                backgroundColor: gradientStroke,
             }]
         },
         options: {
+            animation: false,
             scales: {
-                xAxes: [{
+                   
+                xAxes: [{ticks: {
+                    autoSkip: false,
+                    beginAtZero: true,
+                    fontColor: '#fff',
+                    fontSize: 18
+                },
                     display: true,
-                    responsive: true
-
+                    responsive: true,
+                   
                 }],
-                yAxes: [{
+                yAxes: [{ ticks: {
+                    beginAtZero: true,
+                    fontColor: '#fff',
+                    fontSize: 18,
+                   // mirror: true
+                    
+                },
                     display: true,
                     responsive: true,
 
                 }]
-            }
-        }
+            },
+        legend: {
+            labels: {
+                fontColor: '#FFFFFF',
+                fontFamily: 'Roboto'}
+
+        }},
     });
-console.log(myarray);
+
     let beersTemplate = document.querySelector(".beers-temp").content;
     document.querySelector(".beerinfo").textContent = '';
 
@@ -136,10 +155,9 @@ console.log(myarray);
     let beerArray = jsondata.beertypes;
     let mergeArray = [];
     mergeArray = tapsArray.concat(beerArray);
-    console.log(mergeArray);
+    //console.log(mergeArray);
 
     mergeArray.forEach((e) => {
-        console.log(e.name);
 //e.beer == undefined
         if(e == null){
             document.querySelector(".onebeer").style.display = "none";
@@ -171,9 +189,7 @@ function openModal() {
 //console.log(jsondata.beertypes);
 jsondata.beertypes.forEach((e) => {
     if(dataId == e.name){
-        console.log("something");
-
-        document.querySelector('.beershortdescription').textContent = "Description: " + e.description.overallImpression;
+       document.querySelector('.beershortdescription').textContent = "Description: " + e.description.overallImpression;
         document.querySelector('.aroma').textContent = "Aroma: " + e.description.aroma;
         document.querySelector('.flavor').textContent = "Flavor: " + e.description.flavor;
         document.querySelector('.mouthfeel').textContent = "Mouthfeel: " + e.description.mouthfeel;
