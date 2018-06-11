@@ -67,18 +67,24 @@ function loadJson() {
         clone.querySelector(".name").textContent = e.name;
         clone.querySelector(".status").textContent = e.status;
         clone.querySelector(".statusdetail").textContent = e.statusDetail;
+        clone.querySelector(".workingpic");
+        clone.querySelector(".kegpic");
+        clone.querySelector(".waitingpic");
+
         document.querySelector(".bartenders").appendChild(clone);
        
         if (e.statusDetail === "waiting"){
-          console.log("waiting");
           document.querySelector(".workingpic").style.display = "none";
           document.querySelector(".kegpic").style.display = "none";
         }
         else if(e.statusDetail === "replaceKeg"){
-console.log("replace keg");
+            document.querySelector(".workingpic").style.display = "none";
+            document.querySelector(".waitingpic").style.display = "none";
         }
         else{
-            console.log("working");
+            document.querySelector(".kegpic").style.display = "none";
+            document.querySelector(".waitingpic").style.display = "none";
+
         }
     })
 
@@ -171,20 +177,18 @@ function openModal() {
 //console.log(jsondata.beertypes);
 jsondata.beertypes.forEach((e) => {
     if(dataId == e.name){
-        console.log("something");
-
-        document.querySelector('.beershortdescription').textContent = "Description: " + e.description.overallImpression;
-        document.querySelector('.aroma').textContent = "Aroma: " + e.description.aroma;
-        document.querySelector('.flavor').textContent = "Flavor: " + e.description.flavor;
-        document.querySelector('.mouthfeel').textContent = "Mouthfeel: " + e.description.mouthfeel;
-        document.querySelector('.appearance').textContent = "Appearance: " + e.description.appearance;
+        document.querySelector('.beerlabel').src = "labelimages/" + e.label;
+        document.querySelector('.beershortdescription').textContent = e.description.overallImpression;
+        document.querySelector('.aroma').textContent = e.description.aroma;
+        document.querySelector('.flavor').textContent = e.description.flavor;
+        document.querySelector('.mouthfeel').textContent = e.description.mouthfeel;
+        document.querySelector('.appearance').textContent = e.description.appearance;
     }
     
 })}
 function closeModal() {
         modal.style.display = "none";
     }
-
 
 
 setInterval(

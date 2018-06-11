@@ -61,7 +61,6 @@ body {
 
 
 
-
 /* BEERINFO section */
 
 .beerinfo {
@@ -103,7 +102,7 @@ div {
   border-radius: 15px;
 }
 
-div:not(.beerinfo) {
+div:not(.beerinfo):not(.beerinfosectioncontainer) {
   padding: 1em;
 }
 
@@ -139,7 +138,21 @@ div:not(.beerinfo) {
   margin-top: 4em;
   padding: 20px;
   width: 80%;
-  height: 400px;
+}
+
+.readmore{
+  display:grid;
+  grid-template-columns: 50% 50%;
+  grid-template-areas: title title texti texti;
+
+}
+
+.title{
+  justify-self: center;
+}
+
+.beerlabel{
+  max-width:20%;
 }
 
 /* The Close Button */
