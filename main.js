@@ -8,7 +8,7 @@ function loadJson() {
 
     //transfer data to JSON
     jsondata = JSON.parse(data);
-     
+
     console.log(jsondata);
 
     document.querySelector("#barname").textContent = "Welcome to " + jsondata.bar.name;
@@ -68,6 +68,18 @@ function loadJson() {
         clone.querySelector(".status").textContent = e.status;
         clone.querySelector(".statusdetail").textContent = e.statusDetail;
         document.querySelector(".bartenders").appendChild(clone);
+       
+        if (e.statusDetail === "waiting"){
+          console.log("waiting");
+          document.querySelector(".workingpic").style.display = "none";
+          document.querySelector(".kegpic").style.display = "none";
+        }
+        else if(e.statusDetail === "replaceKeg"){
+console.log("replace keg");
+        }
+        else{
+            console.log("working");
+        }
     })
 
     let storageTemplate = document.querySelector(".storage-temp").content;
@@ -119,6 +131,7 @@ function loadJson() {
 console.log(myarray);
     let beersTemplate = document.querySelector(".beers-temp").content;
     document.querySelector(".beerinfo").textContent = '';
+
     let tapsArray = jsondata.taps;
     let beerArray = jsondata.beertypes;
     let mergeArray = [];
@@ -159,6 +172,12 @@ function openModal() {
 jsondata.beertypes.forEach((e) => {
     if(dataId == e.name){
         console.log("something");
+
+        document.querySelector('.beershortdescription').textContent = "Description: " + e.description.overallImpression;
+        document.querySelector('.aroma').textContent = "Aroma: " + e.description.aroma;
+        document.querySelector('.flavor').textContent = "Flavor: " + e.description.flavor;
+        document.querySelector('.mouthfeel').textContent = "Mouthfeel: " + e.description.mouthfeel;
+        document.querySelector('.appearance').textContent = "Appearance: " + e.description.appearance;
     }
     
 })}
