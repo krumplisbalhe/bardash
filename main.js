@@ -143,16 +143,9 @@ function loadJson() {
                 modal.style.display = "none";
             }
 // When the user clicks on <span> (x), close the modal
-
-
-
-    })
     
-
     }})
 
-
-   
 
 
 }
