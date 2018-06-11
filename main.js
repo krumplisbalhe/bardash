@@ -122,8 +122,7 @@ function loadJson() {
         let clone = beersTemplate.cloneNode(true);
         clone.querySelector(".beername").textContent = e.beer;
         clone.querySelector(".levelofbeer").textContent = (e.level / e.capacity) * 100;
-        //clone.querySelector(".beershortdescription").textContent = ;
-
+       
         let modal = clone.querySelector('#myModal');
         clone.querySelector("#myBtn").addEventListener("click", openModal);
         clone.querySelector(".close").addEventListener("click", closeModal);
@@ -141,14 +140,14 @@ function loadJson() {
         window.onclick = function(event) {
             if (event.target == modal) {
                 modal.style.display = "none";
-            }
-// When the user clicks on <span> (x), close the modal
-    
+            }    
     }})
 
 
 
 }
+
+
 
 
 setInterval(
