@@ -8,7 +8,9 @@ body {
   grid-area: barinfo;
   text-align: center;
 }
-
+.storage{
+  grid-area: storage;
+}
 #barname{
   color: grey;
 }
@@ -19,6 +21,7 @@ body {
 
 .bartenders {
   grid-area: bartenders;
+  width: 200px;
 }
 
 .beerinfo {
@@ -27,12 +30,11 @@ body {
 
 .grid-container {
   display: grid;
-  grid-template-areas: 'barinfo barinfo queue queue bartenders bartenders' 'beerinfo beerinfo beerinfo beerinfo bartenders bartenders' 'beerinfo beerinfo beerinfo beerinfo bartenders bartenders' 'beerinfo beerinfo beerinfo beerinfo bartenders bartenders';
+  grid-template-areas: 'barinfo queue queue queue bartenders bartenders' 'storage storage storage storage bartenders bartenders' 'beerinfo beerinfo beerinfo beerinfo bartenders bartenders' 'beerinfo beerinfo beerinfo beerinfo bartenders bartenders' 'beerinfo beerinfo beerinfo beerinfo bartenders bartenders';
   grid-gap: 10px;
   padding: 10px;
   background-color: #0e131a;
   grid-gap: 30px;
-
   margin-left: 30px;
   margin-right: 30px;
 }
@@ -57,7 +59,7 @@ div:not(.beerinfo){
 }
 
 .beerinfo>div {
-  width: 46%;
+  width: 29%;
   height: 200px;
   justify-content: space-around;
   margin-bottom: 20px;
@@ -65,6 +67,15 @@ div:not(.beerinfo){
 
 #myChart {
   pointer-events:none;
+}
+
+#myChart2{
+  height: 200px;
+  width: 700px;
+}
+
+.barcontainer{
+
 }
 
 .logo{
