@@ -66,26 +66,26 @@ function loadJson() {
 
         clone.querySelector(".name").textContent = e.name;
         clone.querySelector(".status").textContent = e.status;
-        clone.querySelector(".statusdetail").textContent = e.statusDetail;
         clone.querySelector(".workingpic");
         clone.querySelector(".kegpic");
         clone.querySelector(".waitingpic");
+        if (e.statusDetail === "waiting"){
+            clone.querySelector(".workingpic").style.display = "none";
+            clone.querySelector(".kegpic").style.display = "none";
+          }
+          else if(e.statusDetail === "replaceKeg"){
+              clone.querySelector(".workingpic").style.display = "none";
+              clone.querySelector(".waitingpic").style.display = "none";
+          }
+          else{
+              clone.querySelector(".kegpic").style.display = "none";
+              clone.querySelector(".waitingpic").style.display = "none";
+  
+          }
 
         document.querySelector(".bartenders").appendChild(clone);
        
-        if (e.statusDetail === "waiting"){
-          document.querySelector(".workingpic").style.display = "none";
-          document.querySelector(".kegpic").style.display = "none";
-        }
-        else if(e.statusDetail === "replaceKeg"){
-            document.querySelector(".workingpic").style.display = "none";
-            document.querySelector(".waitingpic").style.display = "none";
-        }
-        else{
-            document.querySelector(".kegpic").style.display = "none";
-            document.querySelector(".waitingpic").style.display = "none";
-
-        }
+    
     })
 
     let storageTemplate = document.querySelector(".storage-temp").content;
