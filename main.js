@@ -12,6 +12,7 @@ function loadJson() {
     console.log(jsondata);
 
     document.querySelector("#barname").textContent = "Welcome to " + jsondata.bar.name;
+    TweenLite.to("#barname", 2, {color:"#808080", scale:0.9});
     document.querySelector("#closing").textContent = "Closing time: " + jsondata.bar.closingTime;
     const now = new Date();
     const hours = now.getHours();
@@ -66,27 +67,45 @@ function loadJson() {
 
         clone.querySelector(".name").textContent = e.name;
         clone.querySelector(".status").textContent = e.status;
-        clone.querySelector(".workingpic");
-        clone.querySelector(".kegpic");
-        clone.querySelector(".waitingpic");
+
+        TweenMax.to(".status", 1, {x:20, repeat:10, yoyo:true});
+        clone.querySelector(".waiting");
+        clone.querySelector(".startServing");
+        clone.querySelector(".reserveTap");
+        clone.querySelector(".releaseTap");
+        clone.querySelector(".pourBeer");
+        clone.querySelector(".receivePayment");
+        clone.querySelector(".endServing");
+        clone.querySelector(".replaceKeg");
         if (e.statusDetail === "waiting"){
-            clone.querySelector(".workingpic").style.display = "none";
-            clone.querySelector(".kegpic").style.display = "none";
+            clone.querySelector(".waiting").style.display = "block";
           }
-          else if(e.statusDetail === "replaceKeg"){
-              clone.querySelector(".workingpic").style.display = "none";
-              clone.querySelector(".waitingpic").style.display = "none";
+          else if(e.statusDetail === "startServing"){
+              clone.querySelector(".startServing").style.display = "block";
           }
+          else if(e.statusDetail === "reserveTap"){
+            clone.querySelector(".reserveTap").style.display = "block";
+        }
+        else if(e.statusDetail === "releaseTap"){
+            clone.querySelector(".releaseTap").style.display = "block";
+        }
+        else if(e.statusDetail === "pourBeer"){
+            clone.querySelector(".pourBeer").style.display = "block";
+        }
+        else if(e.statusDetail === "receivePayment"){
+            clone.querySelector(".receivePayment").style.display = "block";
+        }
+        else if(e.statusDetail === "endServing"){
+            clone.querySelector(".endServing").style.display = "block";}
           else{
-              clone.querySelector(".kegpic").style.display = "none";
-              clone.querySelector(".waitingpic").style.display = "none";
-  
+              clone.querySelector(".kegpic").style.display = "block";
           }
 
         document.querySelector(".bartenders").appendChild(clone);
-       
-    
-    })
+        //TweenLite.to(".bticon", 2, {rotationY:360});
+        TweenLite.fromTo(".bticon",1, {opacity:0, scale:0.2}, {opacity:1, scale:1});
+    });
+
 
     let storageTemplate = document.querySelector(".storage-temp").content;
     //document.querySelector(".storage").textContent = '';

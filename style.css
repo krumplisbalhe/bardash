@@ -22,7 +22,7 @@ body {
 
 
 #barname {
-  color: grey;
+  color: #ffffff;
 }
 
 /* QUEUE section*/
@@ -35,7 +35,17 @@ body {
 /* BARTENDERS section*/
 .bartenders {
   grid-area: bartenders;
+  display: flex;
+  flex-direction: column;
   width: 200px;
+  align-items: center;
+}
+
+.bticon{
+  -webkit-filter: invert(95%);
+  display: none;
+  width: 80%;
+  margin-bottom: 20px;
 }
 
 
