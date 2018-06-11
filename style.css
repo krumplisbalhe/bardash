@@ -31,10 +31,11 @@ body {
   grid-area: queue;
 }
 
-
+/* BARTENDERS section*/
 .bartenders {
   grid-area: bartenders;
   width: 200px;
+}
 
 #myChart {
   pointer-events: none;
@@ -55,12 +56,8 @@ body {
   grid-gap: 30px;
   margin-left: 30px;
   margin-right: 30px;
-
-/* BARTENDERS section*/
-
-.bartenders {
-  grid-area: bartenders;
 }
+
 
 /* BEERINFO section */
 
