@@ -26,15 +26,21 @@
 
 
         <div class="bartenders">
+               
         </div>
         <template class="bartenders-temp">
             <h2 class="name"></h2>
             <p class="status"></p>
             <p class="statusdetail"></p>
+            <img class="waitingpic" src="https://drive.google.com/open?id=1wfZTAw5BUj1tEC9_F1k645rKsJBhnfwG">
+            <img class="workingpic" src="https://drive.google.com/open?id=1jr9YzkMRcrs73KLld6mpl86axnUyx774">
+            <img class="kegpic" src="https://drive.google.com/open?id=179BorVD7zEviQzcgyqWe4I-PWURh5hU2">
         </template>
 
         <div class="storage">
+            <div class="barcontainer">
                 <canvas id="myChart2"></canvas>
+            </div>
         </div>
         
         <template class="storage-temp">
@@ -50,25 +56,30 @@
                         <svg id="fillgauge1" width="97%" height="200" onclick=""></svg>
                 </p>
                 <h4 class="beername"></h4>
-                <p class="beershortdescription"></p>
+               
 
 <!-- Trigger/Open The Modal -->
 <button id="myBtn">Beer</button>
 
-<!-- The Modal -->
-<div id="myModal" class="modal">
 
-  <!-- Modal content -->
-  <div class="modal-content">
-    <span class="close">&times;</span>
-    <p>Some text in the Modal..</p>
-  </div>
-
-</div>
 
             </div>
         </template>
+<!-- The Modal -->
+<div id="myModal" class="modal">
 
+        <!-- Modal content -->
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <p class="beershortdescription"></p>
+          <p class="aroma"></p>
+          <p class="flavor"></p>
+          <p class="mouthfeel"></p>
+          <p class="appearance"></p>
+
+        </div>
+      
+      </div>
     </div>
 
 
