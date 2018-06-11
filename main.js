@@ -67,6 +67,7 @@ function loadJson() {
 
         clone.querySelector(".name").textContent = e.name;
         clone.querySelector(".status").textContent = e.status;
+
         TweenMax.to(".status", 1, {x:20, repeat:10, yoyo:true});
         clone.querySelector(".waiting");
         clone.querySelector(".startServing");
@@ -104,6 +105,7 @@ function loadJson() {
         //TweenLite.to(".bticon", 2, {rotationY:360});
         TweenLite.fromTo(".bticon",1, {opacity:0, scale:0.2}, {opacity:1, scale:1});
     });
+
 
     let storageTemplate = document.querySelector(".storage-temp").content;
     //document.querySelector(".storage").textContent = '';
