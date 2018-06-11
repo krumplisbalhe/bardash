@@ -2,12 +2,13 @@
 <html lang="en">
 
 <head>
-        <link href="https://fonts.googleapis.com/css?family=Roboto:100" rel="stylesheet">
-        <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100" rel="stylesheet">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>FooBar</title>
     <link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
@@ -20,21 +21,21 @@
         </div>
         <div class="queue">
             <div class="donutcontainer">
-            <canvas id="myChart"></canvas>
-        </div>
+                <canvas id="myChart"></canvas>
+            </div>
         </div>
 
 
         <div class="bartenders">
-               
+
         </div>
         <template class="bartenders-temp">
             <h2 class="name"></h2>
             <p class="status"></p>
             <p class="statusdetail"></p>
-            <img class="waitingpic" src="https://drive.google.com/open?id=1wfZTAw5BUj1tEC9_F1k645rKsJBhnfwG">
-            <img class="workingpic" src="https://drive.google.com/open?id=1jr9YzkMRcrs73KLld6mpl86axnUyx774">
-            <img class="kegpic" src="https://drive.google.com/open?id=179BorVD7zEviQzcgyqWe4I-PWURh5hU2">
+            <img class="waitingpic" src="img/bartender.png">
+            <img class="workingpic" src="img/bartenderinactive.png">
+            <img class="kegpic" src="img/keg.png">
         </template>
 
         <div class="storage">
@@ -42,44 +43,68 @@
                 <canvas id="myChart2"></canvas>
             </div>
         </div>
-        
+
         <template class="storage-temp">
-        <p class="beeramount"></p>
+            <p class="beeramount"></p>
         </template>
 
         <div class="beerinfo">
-            
+
         </div>
         <template class="beers-temp">
+
             <div class="onebeer">
+                <p class="alcohol"></p>
                 <p class="levelofbeer">
-                        <svg id="fillgauge1" width="97%" height="200" onclick=""></svg>
+                    <svg id="fillgauge1" width="97%" height="200" onclick=""></svg>
                 </p>
                 <h4 class="beername"></h4>
+
+                <!-- Trigger/Open The Modal -->
+                <button id="myBtn">Beer</button>
+            </div>
+        </template>
+
+        <!-- The Modal -->
+        <div id="myModal" class="modal">
+
+            <!-- Modal content -->
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <img class="beerlabel" src="">
+                <div class="readmore">
+                    
+                    <h2 class="title">Description</h2>
+                    <p class="beershortdescription texti"></p>
+            
+
+              
+                    <h2 class="title">Aroma</h2>
+                    <p class="aroma texti"></p>
+       
+
                
+                    <h2 class="title">Flavor</h2>
+                    <p class="flavor texti"></p>
+                
 
-<!-- Trigger/Open The Modal -->
-<button id="myBtn">Beer</button>
+            
+                    <h2 class="title">Mouthfeel</h2>
+                    <p class="mouthfeel texti"></p>
+            
 
+                
+                    <h2 class="title">Appearance</h2>
+                    <p class="appearance texti"></p>
+            
+                </div>
+            </div>
 
 
             </div>
-        </template>
-<!-- The Modal -->
-<div id="myModal" class="modal">
 
-        <!-- Modal content -->
-        <div class="modal-content">
-          <span class="close">&times;</span>
-          <p class="beershortdescription"></p>
-          <p class="aroma"></p>
-          <p class="flavor"></p>
-          <p class="mouthfeel"></p>
-          <p class="appearance"></p>
+        
 
-        </div>
-      
-      </div>
     </div>
 
 

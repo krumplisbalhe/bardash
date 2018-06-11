@@ -67,23 +67,32 @@ function loadJson() {
         clone.querySelector(".name").textContent = e.name;
         clone.querySelector(".status").textContent = e.status;
         clone.querySelector(".statusdetail").textContent = e.statusDetail;
+        clone.querySelector(".workingpic");
+        clone.querySelector(".kegpic");
+        clone.querySelector(".waitingpic");
+
         document.querySelector(".bartenders").appendChild(clone);
        
         if (e.statusDetail === "waiting"){
-          console.log("waiting");
           document.querySelector(".workingpic").style.display = "none";
           document.querySelector(".kegpic").style.display = "none";
         }
         else if(e.statusDetail === "replaceKeg"){
-console.log("replace keg");
+            document.querySelector(".workingpic").style.display = "none";
+            document.querySelector(".waitingpic").style.display = "none";
         }
         else{
-            console.log("working");
+            document.querySelector(".kegpic").style.display = "none";
+            document.querySelector(".waitingpic").style.display = "none";
+
         }
     })
 
     let storageTemplate = document.querySelector(".storage-temp").content;
     //document.querySelector(".storage").textContent = '';
+    
+    myarray = [];
+
     jsondata.storage.forEach((e) => {
        myarray.push(e.amount);
         //let amount = clone.querySelector(".beeramount").textContent = e.amount;
@@ -128,33 +137,36 @@ console.log("replace keg");
 console.log(myarray);
     let beersTemplate = document.querySelector(".beers-temp").content;
     document.querySelector(".beerinfo").textContent = '';
-    jsondata.taps.forEach((e) => {
-        let clone = beersTemplate.cloneNode(true);
-        clone.querySelector("#myBtn").setAttribute("data-id", e.beer); 
-        clone.querySelector(".beername").textContent = e.beer;
-        clone.querySelector(".levelofbeer").textContent = (e.level / e.capacity) * 100;
 
-        //clone.querySelector(".beershortdescription").textContent = ;
+    let tapsArray = jsondata.taps;
+    let beerArray = jsondata.beertypes;
+    let mergeArray = [];
+    mergeArray = tapsArray.concat(beerArray);
+    console.log(mergeArray);
 
-        clone.querySelector("#myBtn").addEventListener("click", openModal);
-        
-
-        document.querySelector(".beerinfo").appendChild(clone);
-
-  
-        //if (modal.style.display = block) clearInterval(setInterval); //clearInterval(openModal);
-
-        // When the user clicks anywhere outside of the modal, close it
-        window.onclick = function(event) {
-            if (event.target == modal) {
-                modal.style.display = "none";
-
-            }
-        // When the user clicks on <span> (x), close the modal
+    mergeArray.forEach((e) => {
+        console.log(e.name);
+//e.beer == undefined
+        if(e == null){
+            document.querySelector(".onebeer").style.display = "none";
+        }else{
+            let clone = beersTemplate.cloneNode(true);
+            clone.querySelector(".alcohol").textContent = e.alc;
+            clone.querySelector("#myBtn").setAttribute("data-id", e.beer); 
+            clone.querySelector(".beername").textContent = e.beer;
+            clone.querySelector(".levelofbeer").textContent = (e.level / e.capacity) * 100;
+            clone.querySelector("#myBtn").addEventListener("click", openModal);
+            document.querySelector(".beerinfo").appendChild(clone);
+            // When the user clicks anywhere outside of the modal, close it
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
     
-
-    }})
-
+                }
+            }
+    }
+    
+    })
 }
 
 let modal = document.querySelector('#myModal');
@@ -165,19 +177,18 @@ function openModal() {
 //console.log(jsondata.beertypes);
 jsondata.beertypes.forEach((e) => {
     if(dataId == e.name){
-        console.log("something");
-        document.querySelector('.beershortdescription').textContent = "Description: " + e.description.overallImpression;
-        document.querySelector('.aroma').textContent = "Aroma: " + e.description.aroma;
-        document.querySelector('.flavor').textContent = "Flavor: " + e.description.flavor;
-        document.querySelector('.mouthfeel').textContent = "Mouthfeel: " + e.description.mouthfeel;
-        document.querySelector('.appearance').textContent = "Appearance: " + e.description.appearance;
+        document.querySelector('.beerlabel').src = "labelimages/" + e.label;
+        document.querySelector('.beershortdescription').textContent = e.description.overallImpression;
+        document.querySelector('.aroma').textContent = e.description.aroma;
+        document.querySelector('.flavor').textContent = e.description.flavor;
+        document.querySelector('.mouthfeel').textContent = e.description.mouthfeel;
+        document.querySelector('.appearance').textContent = e.description.appearance;
     }
     
 })}
 function closeModal() {
         modal.style.display = "none";
     }
-
 
 
 setInterval(
