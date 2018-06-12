@@ -50,6 +50,7 @@ function loadJson() {
             }]
         },
         options: {
+            animation:{easing: 'easeInCirc'},
             responsive: true,
             scales: {
                 xAxes: [{
@@ -78,11 +79,8 @@ function loadJson() {
 
         clone.querySelector(".name").textContent = e.name;
         clone.querySelector(".status").textContent = e.status;
-        TweenMax.to(".status", 1, {
-            x: 20,
-            repeat: 10,
-            yoyo: true
-        });
+
+        
         //icons for showing the detailed status
         clone.querySelector(".waiting");
         clone.querySelector(".startServing");
@@ -131,7 +129,6 @@ function loadJson() {
     jsondata.storage.forEach((e) => {
        storageArray.push(e.amount);
        nameArray.push(e.name);
-     //  background-image: linear-gradient(-225deg, #FF3CAC 0%, #562B7C 52%, #2B86C5 100%);
     const ChartCanva2 = document.getElementById("myChart2").getContext("2d");
     let gradientStroke = ChartCanva2.createLinearGradient(300, 0, 100, 0);
     gradientStroke.addColorStop(0,"#A930F1" );
