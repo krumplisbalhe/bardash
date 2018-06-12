@@ -9,7 +9,6 @@ body {
   margin: 1vw;
   opacity:0;
 }
-
 /* BARINFO section */
 
 .barinfo {
@@ -18,10 +17,39 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  font-size: 0.7em;
 }
 
 #barname {
   color: #ffffff;
+}
+
+.smallicons{
+  width: 2em;
+  -webkit-animation: breathing 3s ease-out infinite normal;
+  animation: breathing 3s ease-out infinite normal;
+  -webkit-font-smoothing: antialiased;
+  }
+@-webkit-keyframes breathing {
+0% {
+  -webkit-transform: scale(1);
+  transform: scale(1);
+}
+
+25% {
+  -webkit-transform: scale(1.5);
+  transform: scale(1.5);
+}
+
+60% {
+  -webkit-transform: scale(1.3);
+  transform: scale(1.3);
+}
+
+100% {
+  -webkit-transform: scale(1);
+  transform: scale(1);
+}
 }
 
 /* QUEUE section*/
@@ -43,7 +71,7 @@ body {
 .bticon{
   -webkit-filter: invert(95%);
   display: none;
-  width: 80%;
+  width: 3em;
   margin-bottom: 20px;
 }
 
@@ -58,9 +86,19 @@ body {
   width: 30vw;
 }
 
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin: 1em 0;
+  padding: 0;
+}
+
 /* STORAGE section */
 .storage{
   grid-area: storage;
+  width: 500px;
 }
 
 #myChart2{
