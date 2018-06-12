@@ -8,26 +8,27 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>FooBar</title>
     <link rel="stylesheet" href="style.css">
-
 </head>
 
 <body>
     <img class="logo" src="img/foobar.png">
+    <!-- Grid container for all the divs, css grid -->
     <div class="grid-container">
+        <!-- Bar info section -->
         <div class="barinfo">
             <h1 id="barname"></h1>
             <h2 id="closing"></h2>
             <h2 id="currenttime"></h2>
         </div>
+        <!-- Queue section with the chart -->
         <div class="queue">
             <div class="donutcontainer">
                 <canvas id="myChart"></canvas>
             </div>
         </div>
 
-
+        <!-- Bartenders section -->
         <div class="bartenders">
-
         </div>
         <template class="bartenders-temp">
             <h2 class="name"></h2>
@@ -42,6 +43,7 @@
             <img class="replaceKeg bticon" src="img/keg.svg">
         </template>
 
+        <!-- Storage section with the chart -->
         <div class="storage">
             <div class="barcontainer">
                 <canvas id="myChart2"></canvas>
@@ -52,63 +54,56 @@
             <p class="beeramount"></p>
         </template>
 
+        <!-- Beer info section with the beer cards -->
         <div class="beerinfo">
-
         </div>
         <template class="beers-temp">
 
             <div class="onebeer">
-                <p class="alcohol"></p>
-                <p class="levelofbeer">
-                    <svg id="fillgauge1" width="97%" height="200" onclick=""></svg>
-                </p>
+                    <p class="alcohol"></p>
+                <p class="levelofbeer"> </p>
+    
+                    <div class="beerlevel"></div>
+            
                 <h4 class="beername"></h4>
 
-                <!-- Trigger/Open The Modal -->
+                <!-- Pop-up window section -->
+                <!-- Open the Pop-up with this button -->
                 <button id="myBtn">Beer</button>
             </div>
         </template>
 
-        <!-- The Modal -->
+        <template class="morebeerinfo">
+                
+            </template>
+
+        <!-- Pop-up window itself -->
         <div id="myModal" class="modal">
 
-            <!-- Modal content -->
+            <!-- Pop-up window content -->
             <div class="modal-content">
                 <span class="close">&times;</span>
                 <img class="beerlabel" src="">
                 <div class="readmore">
-                    
+
                     <h2 class="title">Description</h2>
                     <p class="beershortdescription texti"></p>
-            
 
-              
                     <h2 class="title">Aroma</h2>
                     <p class="aroma texti"></p>
-       
 
-               
                     <h2 class="title">Flavor</h2>
                     <p class="flavor texti"></p>
-                
 
-            
                     <h2 class="title">Mouthfeel</h2>
                     <p class="mouthfeel texti"></p>
-            
 
-                
                     <h2 class="title">Appearance</h2>
                     <p class="appearance texti"></p>
-            
+
                 </div>
             </div>
-
-
-            </div>
-
-        
-
+        </div>
     </div>
 
 
