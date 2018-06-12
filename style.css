@@ -106,6 +106,11 @@ hr {
   width: 700px;
 }
 
+.sell{
+  grid-area: sell;
+  width: 300px;
+}
+
 /* BEERINFO section */
 
 .beerinfo {
@@ -161,7 +166,7 @@ hr {
 /* GRIDS */
 .grid-container {
   display: grid;
-  grid-template-areas: 'barinfo queue queue queue bartenders bartenders' 'storage storage storage storage bartenders bartenders' 'beerinfo beerinfo beerinfo beerinfo bartenders bartenders' 'beerinfo beerinfo beerinfo beerinfo bartenders bartenders' 'beerinfo beerinfo beerinfo beerinfo bartenders bartenders';
+  grid-template-areas: 'barinfo queue queue queue bartenders bartenders' 'storage storage sell sell bartenders bartenders' 'beerinfo beerinfo beerinfo beerinfo bartenders bartenders' 'beerinfo beerinfo beerinfo beerinfo bartenders bartenders' 'beerinfo beerinfo beerinfo beerinfo bartenders bartenders';
   grid-gap: 10px;
   padding: 10px;
   background-color: #0e131a;

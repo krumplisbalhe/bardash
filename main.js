@@ -199,7 +199,7 @@ function loadJson() {
             //clone.querySelector("#myChart3").getContext('2d').textContent;
             const ChartCanva3 = document.getElementById("myChart3");
             //creating a chart with chart.js
-            const myChart3 = new Chart(ChartCanva3, {
+           /* const myChart3 = new Chart(ChartCanva3, {
                 type: 'doughnut',
                 data: {
                     labels: ["Standing in the queue: ","Being served: "],
@@ -242,7 +242,7 @@ function loadJson() {
                     position: "bottom"
                 }
             }
-        })
+        }) */
 
             jsondata.beertypes.forEach((beertype) =>{
          
