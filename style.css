@@ -95,15 +95,25 @@ hr {
   padding: 0;
 }
 
+.bartenders > h2{
+  margin-bottom: 0px;
+}
+
 /* STORAGE section */
 .storage{
   grid-area: storage;
-  width: 500px;
+  width: 600px;
+}
+
+.sell{
+  grid-area: sell;
+  width: 300px;
 }
 
 #myChart2{
   height: 200px;
   width: 700px;
+  pointer-events: none;
 }
 
 /* BEERINFO section */
@@ -140,7 +150,6 @@ hr {
 
 
 #myBtn {
-  /* border-image: linear-gradient(to left, #743ad5 0%, #d53a9d 100%);*/
   border-image-slice: 1;
   border-width: 4px;
   color: white;
@@ -155,13 +164,17 @@ hr {
   line-height: 2;
   border: 4px solid #b966d6;
   /* just to show box-shadow still works fine */
-  box-shadow: 0 3px 9px black, inset 0 0 9px #b966d6;
+  box-shadow: 0 3px 3px black, inset 0 0 20px #A930F1;
+}
+
+#myChart3 {
+  pointer-events: none;
 }
 
 /* GRIDS */
 .grid-container {
   display: grid;
-  grid-template-areas: 'barinfo queue queue queue bartenders bartenders' 'storage storage storage storage bartenders bartenders' 'beerinfo beerinfo beerinfo beerinfo bartenders bartenders' 'beerinfo beerinfo beerinfo beerinfo bartenders bartenders' 'beerinfo beerinfo beerinfo beerinfo bartenders bartenders';
+  grid-template-areas: 'barinfo queue queue queue bartenders bartenders' 'storage storage sell sell bartenders bartenders' 'beerinfo beerinfo beerinfo beerinfo bartenders bartenders' 'beerinfo beerinfo beerinfo beerinfo bartenders bartenders' 'beerinfo beerinfo beerinfo beerinfo bartenders bartenders';
   grid-gap: 10px;
   padding: 10px;
   background-color: #0e131a;
@@ -215,18 +228,24 @@ div:not(.beerinfo):not(.beerinfosectioncontainer) {
 }
 
 .readmore{
+  text-align: center;
   display:grid;
-  grid-template-columns: 50% 50%;
-  grid-template-areas: title title texti texti;
+  grid-template-columns: 30% 70%;
+  grid-template-areas:  title texti texti texti;
 
 }
-
+.texti{
+  font-size: 14px;
+}
 .title{
   justify-self: center;
+  font-size: 1em;
 }
 
 .beerlabel{
-  max-width:20%;
+  max-width:30%;
+  margin: 2em;
+  float: left;
 }
 
 /* The Close Button */
@@ -244,4 +263,15 @@ div:not(.beerinfo):not(.beerinfosectioncontainer) {
   color: rgb(185, 102, 214);
   text-decoration: none;
   cursor: pointer;
+}
+
+#chartdiv {
+	width		: 100%;
+	height		: 200px;
+	font-size	: 11px;
+}
+
+#winebox{
+  width: 200px;
+
 }

@@ -21,7 +21,7 @@ function loadJson() {
         color: "#808080",
         scale: 0.9
     });
-    document.querySelector("#closing").textContent = "Closing time: " + jsondata.bar.closingTime;
+   document.querySelector("#closing").textContent = "Closing time: " + jsondata.bar.closingTime.slice(0, -3);
     //showing current time
     const now = new Date();
     const hours = now.getHours();
@@ -39,8 +39,8 @@ function loadJson() {
             datasets: [{
                 data: [queue, serving],
                 backgroundColor: [
-                    '#ee609c',
-                    '#b966d6',
+                    '#5B9FD5',
+                    '#A930F1',
                 ],
                 borderColor: [
                     'transparent',
@@ -71,6 +71,9 @@ function loadJson() {
         }
 
     });
+
+    //sold beer section
+    
     //bartenders section
     let mytemplate = document.querySelector(".bartenders-temp").content;
     document.querySelector(".bartenders").textContent = '';
@@ -79,6 +82,12 @@ function loadJson() {
 
         clone.querySelector(".name").textContent = e.name;
         clone.querySelector(".status").textContent = e.status;
+        if (e.status === "READY"){
+            clone.querySelector(".status").style.color = "#A930F1";
+        }
+        else if (e.status === "WORKING") {
+            clone.querySelector(".status").style.color = "#5B9FD5";
+        }
 
         
         //icons for showing the detailed status
@@ -129,19 +138,17 @@ function loadJson() {
     jsondata.storage.forEach((e) => {
        storageArray.push(e.amount);
        nameArray.push(e.name);
-
-  
     const ChartCanva2 = document.getElementById("myChart2").getContext("2d");
-    let gradientStroke = ChartCanva2.createLinearGradient(500, 0, 100, 0);
-    gradientStroke.addColorStop(0, "#80b6f4");
-    gradientStroke.addColorStop(1, "#f49080");
+    let gradientStroke = ChartCanva2.createLinearGradient(300, 0, 100, 0);
+    gradientStroke.addColorStop(0,"#A930F1" );
+    gradientStroke.addColorStop(1,"#00dbde" );
 
     const myChart2 = new Chart(ChartCanva2, {
         type: 'horizontalBar',
         data: {
             labels: nameArray,
             datasets: [{
-                label: "Beer avability",
+                label: "Beer in stock",
                 data: storageArray,
                 borderColor: gradientStroke,
                 pointHoverBorderWidth: 1,
@@ -192,10 +199,8 @@ function loadJson() {
             clone.querySelector(".beername").textContent = tap.beer;
             let levelperc = clone.querySelector(".levelofbeer").textContent = (tap.level / tap.capacity) * 100;
             let levelhelper = (tap.level / tap.capacity);
-            clone.querySelector(".beerlevel").style.width =  `${levelhelper * 100}px`;
             clone.querySelector("#myBtn").setAttribute("data-id", tap.beer); 
             clone.querySelector("#myBtn").addEventListener("click", openModal);
-
             //clone.querySelector("#myChart3").getContext('2d').textContent;
             const ChartCanva3 = document.getElementById("myChart3");
             //creating a chart with chart.js
@@ -243,7 +248,6 @@ function loadJson() {
                 }
             }
         })
-
             jsondata.beertypes.forEach((beertype) =>{
          
                 if (tap.beer == beertype.name){
@@ -284,6 +288,8 @@ document.querySelector(".close").addEventListener("click", closeModal);
     function closeModal() {
         modal.style.display = "none";
     }
+
+   
 
     setInterval(
         loadJson,
