@@ -1,6 +1,7 @@
 "use strict";
 document.addEventListener("DOMContentLoaded", loadJson);
-let myarray = [];
+let storageArray= [];
+let nameArray = [];
 let jsondata;
 
 //logo animation
@@ -123,6 +124,14 @@ function loadJson() {
     //storage section
     let storageTemplate = document.querySelector(".storage-temp").content;
     //document.querySelector(".storage").textContent = '';
+
+    
+    storageArray = [];
+    nameArray = [];
+    jsondata.storage.forEach((e) => {
+       storageArray.push(e.amount);
+       nameArray.push(e.name);
+
     myarray = [];
 
     jsondata.storage.forEach((e) => {
@@ -131,44 +140,60 @@ function loadJson() {
         // document.querySelector(".storage").appendChild(clone)
         // console.log(amount);
     });
-    const ChartCanva2 = document.getElementById("myChart2");
+  
+    const ChartCanva2 = document.getElementById("myChart2").getContext("2d");
+    let gradientStroke = ChartCanva2.createLinearGradient(500, 0, 100, 0);
+    gradientStroke.addColorStop(0, "#80b6f4");
+    gradientStroke.addColorStop(1, "#f49080");
+
     const myChart2 = new Chart(ChartCanva2, {
-        type: 'bar',
+        type: 'horizontalBar',
         data: {
-            labels: ["lala", "...", "sth", "lala", "Being served", "sth"],
+            labels: nameArray,
             datasets: [{
-                data: myarray,
-                backgroundColor: [
-                    '#ee609c',
-                    '#b966d6',
-                    '#b966d6',
-                ],
-                borderColor: [
-                    'transparent',
-                    'transparent',
-                    'transparent'
-                ],
-                borderWidth: 1
+                label: "Beer avability",
+                data: storageArray,
+                borderColor: gradientStroke,
+                pointHoverBorderWidth: 1,
+                pointRadius: 3,
+                borderWidth:5,
+                backgroundColor: gradientStroke,
             }]
         },
         options: {
+            animation: false,
             scales: {
-                xAxes: [{
+                   
+                xAxes: [{ticks: {
+                    autoSkip: false,
+                    beginAtZero: true,
+                    fontColor: '#fff',
+                    fontSize: 18
+                },
                     display: true,
-                    responsive: true
-
+                    responsive: true,
+                   
                 }],
-                yAxes: [{
+                yAxes: [{ ticks: {
+                    beginAtZero: true,
+                    fontColor: '#fff',
+                    fontSize: 18,
+                   // mirror: true
+                    
+                },
                     display: true,
                     responsive: true,
 
                 }]
-            }
-        }
+            },
+        legend: {
+            labels: {
+                fontColor: '#FFFFFF',
+                fontFamily: 'Roboto'}
+
+        }},
     });
 
-    //beer section
-    //console.log(myarray);
     let beersTemplate = document.querySelector(".beers-temp").content;
     document.querySelector(".beerinfo").textContent = '';
 
@@ -203,9 +228,11 @@ function loadJson() {
                 }}
         });
     }
-    //pop-up window
-    let modal = document.querySelector('#myModal');
-    document.querySelector(".close").addEventListener("click", closeModal);
+
+    
+    })
+}
+
 
     function openModal() {
         modal.style.display = "block";
