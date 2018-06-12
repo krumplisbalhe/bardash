@@ -50,6 +50,7 @@ function loadJson() {
             }]
         },
         options: {
+            animation:{easing: 'easeInCirc'},
             responsive: true,
             scales: {
                 xAxes: [{
@@ -78,11 +79,8 @@ function loadJson() {
 
         clone.querySelector(".name").textContent = e.name;
         clone.querySelector(".status").textContent = e.status;
-        TweenMax.to(".status", 1, {
-            x: 20,
-            repeat: 10,
-            yoyo: true
-        });
+
+        
         //icons for showing the detailed status
         clone.querySelector(".waiting");
         clone.querySelector(".startServing");
@@ -132,14 +130,6 @@ function loadJson() {
        storageArray.push(e.amount);
        nameArray.push(e.name);
 
-    myarray = [];
-
-    jsondata.storage.forEach((e) => {
-        myarray.push(e.amount);
-        //let amount = clone.querySelector(".beeramount").textContent = e.amount;
-        // document.querySelector(".storage").appendChild(clone)
-        // console.log(amount);
-    });
   
     const ChartCanva2 = document.getElementById("myChart2").getContext("2d");
     let gradientStroke = ChartCanva2.createLinearGradient(500, 0, 100, 0);
@@ -216,9 +206,6 @@ function loadJson() {
     
             });
     
-
-            
-
             document.querySelector(".beerinfo").appendChild(clone);
             // When the user clicks anywhere outside of the modal, close it
             window.onclick = function(event) {
@@ -227,13 +214,10 @@ function loadJson() {
     
                 }}
         });
-    }
-
-    
     })
 }
-
-
+let modal = document.querySelector('#myModal');
+document.querySelector(".close").addEventListener("click", closeModal);
     function openModal() {
         modal.style.display = "block";
         let dataId = event.target.getAttribute("data-id");
