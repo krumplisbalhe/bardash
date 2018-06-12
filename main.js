@@ -39,8 +39,8 @@ function loadJson() {
             datasets: [{
                 data: [queue, serving],
                 backgroundColor: [
-                    '#5B9FD5',
-                    '#A930F1',
+                    '#ee609c',
+                    '#b966d6',
                 ],
                 borderColor: [
                     'transparent',
@@ -129,10 +129,12 @@ function loadJson() {
     jsondata.storage.forEach((e) => {
        storageArray.push(e.amount);
        nameArray.push(e.name);
+
+  
     const ChartCanva2 = document.getElementById("myChart2").getContext("2d");
-    let gradientStroke = ChartCanva2.createLinearGradient(300, 0, 100, 0);
-    gradientStroke.addColorStop(0,"#A930F1" );
-    gradientStroke.addColorStop(1,"#00dbde" );
+    let gradientStroke = ChartCanva2.createLinearGradient(500, 0, 100, 0);
+    gradientStroke.addColorStop(0, "#80b6f4");
+    gradientStroke.addColorStop(1, "#f49080");
 
     const myChart2 = new Chart(ChartCanva2, {
         type: 'horizontalBar',
@@ -190,9 +192,10 @@ function loadJson() {
             clone.querySelector(".beername").textContent = tap.beer;
             clone.querySelector(".levelofbeer").textContent = (tap.level / tap.capacity) * 100;
             let levelhelper = (tap.level / tap.capacity);
+            clone.querySelector(".beerlevel").style.width =  `${levelhelper * 100}px`;
             clone.querySelector("#myBtn").setAttribute("data-id", tap.beer); 
             clone.querySelector("#myBtn").addEventListener("click", openModal);
-            //clone.querySelector("#myChart3").getContext('2d').textContent;
+
 
             jsondata.beertypes.forEach((beertype) =>{
          
@@ -235,52 +238,6 @@ document.querySelector(".close").addEventListener("click", closeModal);
         modal.style.display = "none";
     }
 
-    const ChartCanva3 = document.getElementById("myChart3");
-    //creating a chart with chart.js
-    const myChart3 = new Chart(ChartCanva3, {
-        type: 'doughnut',
-        data: {
-            labels: ["Standing in the queue: ","Being served: "],
-            datasets: [{
-                data: ["2","8"],
-                backgroundColor: [
-                    '#ee609c',
-                    '#b966d6',
-                ],
-                borderColor: [
-                    'transparent',
-                    'transparent'
-                ],
-                borderWidth: 1
-            }]
-        },
-        options: {
-            responsive: true,
-            scales: {
-                xAxes: [{
-                    display: false
-                }],
-                yAxes: [{
-                    display: false
-                }]
-
-            },
-        cutoutPercentage: 50,
-        rotation: -3.1415926535898,
-        circumference: 3.1415926535898,
-        legend: {
-            display: false
-        },
-        tooltips: {
-            enabled: false
-        },
-        title: {
-            display: true,
-        text: 4,
-            position: "bottom"
-        }
-    }
-})
 
     setInterval(
         loadJson,
