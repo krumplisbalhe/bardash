@@ -219,18 +219,24 @@ div:not(.beerinfo):not(.beerinfosectioncontainer) {
 }
 
 .readmore{
+  text-align: center;
   display:grid;
-  grid-template-columns: 50% 50%;
-  grid-template-areas: title title texti texti;
+  grid-template-columns: 100%;
+  grid-template-areas: title texti;
 
 }
-
+.texti{
+  font-size: 14px;
+}
 .title{
   justify-self: center;
+  font-size: 1em;
 }
 
 .beerlabel{
-  max-width:20%;
+  max-width:30%;
+  margin: 2em;
+  float: left;
 }
 
 /* The Close Button */
