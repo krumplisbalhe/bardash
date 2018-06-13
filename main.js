@@ -22,7 +22,7 @@ function loadJson() {
         color: "#808080",
         scale: 0.9
     });
-    document.querySelector("#closing").textContent = "Closing time: " + jsondata.bar.closingTime;
+    document.querySelector("#closing").textContent = "Closing time: " + jsondata.bar.closingTime.slice(0, -3);
     //showing current time
     const now = new Date();
     const hours = now.getHours();
@@ -216,7 +216,7 @@ function loadJson() {
          
                 if (tap.beer == beertype.name){
 
-                    clone.querySelector(".alcohol").textContent = beertype.alc;
+                    clone.querySelector(".alcohol").textContent = "Alc.: " + beertype.alc + "%";
                     clone.querySelector(".beercardpicture").src = "labelimages/" + beertype.label;
 
                 }
@@ -226,7 +226,7 @@ function loadJson() {
 
 
             document.querySelector(".beerinfo").appendChild(clone);
-            
+
             // When the user clicks anywhere outside of the modal, close it
             window.onclick = function(event) {
                 if (event.target == modal) {
@@ -262,4 +262,4 @@ document.querySelector(".close").addEventListener("click", closeModal);
 
     setInterval(
         loadJson,
-        10000);
+        100000);

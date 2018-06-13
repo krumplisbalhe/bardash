@@ -147,15 +147,18 @@ hr {
 
 .onebeer{
   display: grid;
-  grid-template-columns: 20% 60% 20%;
+  grid-template-columns: 30% 40% 30%;
   grid-template-rows: 20% 40% 20% 20%;
   grid-gap: 4px 4px;
   justify-items: center;
   align-items: stretch;
-  grid-template-areas: 'graph . alcohol' '. pic .' '. . .' '. beername but';
+  grid-template-areas: 'graph . alcohol' 'graph pic .' '. pic .' '. beername but';
 }
-.sc-gauge{
+.gauge-box{
   grid-area: graph;
+  padding:0px!important;
+  align-self: start;
+  justify-self: center;
 }
 
 .levelofbeer{
@@ -166,20 +169,28 @@ hr {
 .alcohol{
   grid-area: alcohol;
   margin:0;
+  align-self: center;
 }
 
 .beername{
   grid-area: beername;
   margin:0;
   align-self: start;
+  align-self: center;
 }
 
 .beercardpicture{
   grid-area: pic;
+  
+}
+
+.buttoncontainer{
+  grid-area: but;
+  padding: 0!important;
+  justify-self: end;
 }
 
 #myBtn {
-  grid-area: but;
   border-image-slice: 1;
   border-width: 4px;
   color: white;
@@ -306,11 +317,12 @@ div:not(.beerinfo):not(.beerinfosectioncontainer) {
 	font-size	: 11px;
 }
 
-.sc-gauge  { width:100px; height:100px; background-color: transparent!important; }
-.sc-background { position:relative; height:50px; margin-bottom:5px; background-color:#fff; border-radius:150px 150px 0 0; overflow:hidden; text-align:center; }
-.sc-mask { position:absolute; top:10px; right:10px; left:10px; height:40px; border-radius:150px 150px 0 0 }
-.sc-percentage { position:absolute; top:80px; left:-100%; width:200%; height:200%; margin-left:50px; background-image: linear-gradient(to right, #00dbde 0%, #fc00ff 100%); transition: all 2s; }
+
+.sc-gauge  { width:50px; height:50px; background-color: transparent!important; padding:0px !important;}
+.sc-background { position:relative; height:10px; margin-bottom:0px; background-color:#fff; border-radius:150px 150px 0 0; overflow:hidden; text-align:center; }
+.sc-mask { position:absolute; top:5px; right:5px; left:5px; height:20px; border-radius:150px 150px 0 0 }
+.sc-percentage { position:absolute; top:50px; left:-100%; width:200%; height:200%; margin-left:50px; background-image: linear-gradient(to right, #00dbde 0%, #fc00ff 100%); }
 .sc-percentage { transform:rotate(100deg); transform-origin:top center; }
 .sc-min { float:left; }
 .sc-max { float:right; }
-.sc-value { position:absolute; top:50%; left:0; width:100%;  font-size:24px; font-weight:700 }
+.sc-value { position:absolute; left:0; width:100%;  font-size:20px; font-weight:700 }
