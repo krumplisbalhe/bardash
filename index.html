@@ -60,15 +60,7 @@
         </div>
 
      
-        <div class="sc-gauge">
-            <div class="sc-background">
-              <div class="sc-percentage"></div>
-              <div class="sc-mask"></div>
-              <span class="sc-value">88</span>
-            </div>
-            <span class="sc-min">0</span>
-            <span class="sc-max">100</span>
-        </div>
+       
         
         <!-- Beer info section with the beer cards -->
         <div class="beerinfo">
@@ -76,16 +68,23 @@
         <template class="beers-temp">
 
             <div class="onebeer">
-                    <p class="levelofbeer"> </p>
                     <p class="alcohol"></p>
                     <img src="" class="beercardpicture">
                     <p class="category"></p>
-                   
-                
+                   <div class="gauge-box">
+                    <div class="sc-gauge">
+                        <div class="sc-background">
+                          <div class="sc-percentage"></div>
+                          <div class="sc-mask"></div>
+                          <span class="sc-value">88</span>
+                        </div>
+                    </div>
+                </div>
                 <h4 class="beername"></h4>
                 <!-- Pop-up window section -->
                 <!-- Open the Pop-up with this button -->
                 <button id="myBtn">Info</button>
+               
             </div>
         </template>
        
