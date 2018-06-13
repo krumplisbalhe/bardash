@@ -190,7 +190,7 @@ function loadJson() {
     let mydiv = document.querySelector(".sell");
    
     jsondata.queue.forEach((e) => {
-      numberOrders = 0 + e.order.length;
+      numberOrders =  + e.order.length;
       document.querySelector("#sold-number").textContent = numberOrders;  
       
        // let pNumber = document.querySelector("#sold-number").textContent;
@@ -262,4 +262,4 @@ document.querySelector(".close").addEventListener("click", closeModal);
 
     setInterval(
         loadJson,
-        100000);
+        10000);
