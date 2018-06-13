@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", loadJson);
 let storageArray= [];
 let nameArray = [];
 let jsondata;
+let numberOrders = 0;
 
 //logo animation
 const logo = document.querySelector(".logo");
@@ -74,12 +75,17 @@ function loadJson() {
     //bartenders section
     let mytemplate = document.querySelector(".bartenders-temp").content;
     document.querySelector(".bartenders").textContent = '';
-    jsondata.bartenders.forEach((e) => {
+   jsondata.bartenders.forEach((e) => {
         let clone = mytemplate.cloneNode(true);
 
         clone.querySelector(".name").textContent = e.name;
         clone.querySelector(".status").textContent = e.status;
-
+        if (e.status === "READY"){
+            clone.querySelector(".status").style.color = "#A930F1";
+        }
+        else if (e.status === "WORKING") {
+            clone.querySelector(".status").style.color = "#5B9FD5";
+        }
         
         //icons for showing the detailed status
         clone.querySelector(".waiting");
@@ -181,6 +187,20 @@ function loadJson() {
 
         }},
     });
+    //let sellTemplate = document.querySelector("#sell-temp").content;
+    let mydiv = document.querySelector(".sell");
+   
+    jsondata.queue.forEach((e) => {
+      numberOrders = 0 + e.order.length;
+      console.log(numberOrders);
+      document.querySelector("#sold-number").textContent = numberOrders;  
+      
+       // let pNumber = document.querySelector("#sold-number").textContent;
+       // pNumber.appendChild(numberOrders);
+
+
+    })
+
 
     let beersTemplate = document.querySelector(".beers-temp").content;
     document.querySelector(".beerinfo").textContent = '';
