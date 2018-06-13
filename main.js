@@ -128,8 +128,7 @@ function loadJson() {
     //storage section
     let storageTemplate = document.querySelector(".storage-temp").content;
     //document.querySelector(".storage").textContent = '';
-
-    
+    //creating arrays in order to use them as data for the graph
     storageArray = [];
     nameArray = [];
     jsondata.storage.forEach((e) => {

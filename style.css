@@ -79,6 +79,7 @@ body {
 
 #myChart, #myChart2 {
   pointer-events: none;
+ 
 }
 
 .donutcontainer {
@@ -305,10 +306,10 @@ div:not(.beerinfo):not(.beerinfosectioncontainer) {
 	font-size	: 11px;
 }
 
-.sc-gauge  { width:100px; height:100px; background-color: transparent!important;}
+.sc-gauge  { width:100px; height:100px; background-color: transparent!important; }
 .sc-background { position:relative; height:50px; margin-bottom:5px; background-color:#fff; border-radius:150px 150px 0 0; overflow:hidden; text-align:center; }
 .sc-mask { position:absolute; top:10px; right:10px; left:10px; height:40px; border-radius:150px 150px 0 0 }
-.sc-percentage { position:absolute; top:80px; left:-100%; width:200%; height:200%; margin-left:50px; background-image: linear-gradient(to right, #00dbde 0%, #fc00ff 100%); }
+.sc-percentage { position:absolute; top:80px; left:-100%; width:200%; height:200%; margin-left:50px; background-image: linear-gradient(to right, #00dbde 0%, #fc00ff 100%); transition: all 2s; }
 .sc-percentage { transform:rotate(100deg); transform-origin:top center; }
 .sc-min { float:left; }
 .sc-max { float:right; }
