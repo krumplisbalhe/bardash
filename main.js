@@ -186,7 +186,7 @@ function loadJson() {
 
         }},
     });
-
+// beer cards section
     let beersTemplate = document.querySelector(".beers-temp").content;
     document.querySelector(".beerinfo").textContent = '';
 
@@ -196,64 +196,20 @@ function loadJson() {
             let levelperc = clone.querySelector(".levelofbeer").textContent = (tap.level / tap.capacity) * 100;
             let levelhelper = (tap.level / tap.capacity);
             clone.querySelector("#myBtn").setAttribute("data-id", tap.beer); 
-            clone.querySelector("#myBtn").addEventListener("click", openModal);
-            //clone.querySelector("#myChart3").getContext('2d').textContent;
-            const ChartCanva3 = document.getElementById("myChart3");
-            //creating a chart with chart.js
-            const myChart3 = new Chart(ChartCanva3, {
-                type: 'doughnut',
-                data: {
-                    labels: ["Standing in the queue: ","Being served: "],
-                    datasets: [{
-                        data: [levelperc, 100-levelhelper],
-                        backgroundColor: [
-                            '#ee609c',
-                            '#b966d6',
-                        ],
-                        borderColor: [
-                            'transparent',
-                            'transparent'
-                        ],
-                        borderWidth: 1
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    scales: {
-                        xAxes: [{
-                            display: false
-                        }],
-                        yAxes: [{
-                            display: false
-                        }]
-        
-                    },
-                cutoutPercentage: 50,
-                rotation: -3.1415926535898,
-                circumference: 3.1415926535898,
-                legend: {
-                    display: false
-                },
-                tooltips: {
-                    enabled: false
-                },
-                title: {
-                    display: true,
-                text: 4,
-                    position: "bottom"
-                }
-            }
-        })
+            clone.querySelector("#myBtn").addEventListener("click", openModal); 
             jsondata.beertypes.forEach((beertype) =>{
          
                 if (tap.beer == beertype.name){
 
                     clone.querySelector(".alcohol").textContent = beertype.alc;
+                    clone.querySelector(".beercardpicture").src = "labelimages/" + beertype.label;
+
                 }
     
             });
     
             document.querySelector(".beerinfo").appendChild(clone);
+            
             // When the user clicks anywhere outside of the modal, close it
             window.onclick = function(event) {
                 if (event.target == modal) {
