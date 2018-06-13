@@ -57,6 +57,7 @@ body {
 
 .queue {
   grid-area: queue;
+  justify-self: center;
 }
 
 
