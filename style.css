@@ -1,3 +1,4 @@
+
 body {
   background-color: #0e131a;
   color: white;
@@ -95,10 +96,6 @@ hr {
   padding: 0;
 }
 
-.bartenders > h2{
-  margin-bottom: 0px;
-}
-
 /* STORAGE section */
 .storage{
   grid-area: storage;
@@ -113,7 +110,6 @@ hr {
 #myChart2{
   height: 200px;
   width: 700px;
-  pointer-events: none;
 }
 
 /* BEERINFO section */
@@ -165,10 +161,6 @@ hr {
   border: 4px solid #b966d6;
   /* just to show box-shadow still works fine */
   box-shadow: 0 3px 3px black, inset 0 0 20px #A930F1;
-}
-
-#myChart3 {
-  pointer-events: none;
 }
 
 /* GRIDS */
@@ -273,5 +265,4 @@ div:not(.beerinfo):not(.beerinfosectioncontainer) {
 
 #winebox{
   width: 200px;
-
 }

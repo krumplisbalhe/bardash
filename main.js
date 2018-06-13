@@ -21,7 +21,7 @@ function loadJson() {
         color: "#808080",
         scale: 0.9
     });
-   document.querySelector("#closing").textContent = "Closing time: " + jsondata.bar.closingTime.slice(0, -3);
+    document.querySelector("#closing").textContent = "Closing time: " + jsondata.bar.closingTime;
     //showing current time
     const now = new Date();
     const hours = now.getHours();
@@ -71,13 +71,10 @@ function loadJson() {
         }
 
     });
-
-    //sold beer section
-    
     //bartenders section
     let mytemplate = document.querySelector(".bartenders-temp").content;
     document.querySelector(".bartenders").textContent = '';
-    jsondata.bartenders.forEach((e) => {
+   jsondata.bartenders.forEach((e) => {
         let clone = mytemplate.cloneNode(true);
 
         clone.querySelector(".name").textContent = e.name;
@@ -88,7 +85,6 @@ function loadJson() {
         else if (e.status === "WORKING") {
             clone.querySelector(".status").style.color = "#5B9FD5";
         }
-
         
         //icons for showing the detailed status
         clone.querySelector(".waiting");
@@ -148,7 +144,7 @@ function loadJson() {
         data: {
             labels: nameArray,
             datasets: [{
-                label: "Beer in stock",
+                label: "Beer avability",
                 data: storageArray,
                 borderColor: gradientStroke,
                 pointHoverBorderWidth: 1,
