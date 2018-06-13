@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", loadJson);
 let storageArray= [];
 let nameArray = [];
 let jsondata;
+let numberOrders = 0;
 
 //logo animation
 const logo = document.querySelector(".logo");
@@ -186,7 +187,21 @@ function loadJson() {
 
         }},
     });
-// beer cards section
+    //let sellTemplate = document.querySelector("#sell-temp").content;
+    let mydiv = document.querySelector(".sell");
+   
+    jsondata.queue.forEach((e) => {
+      numberOrders = 0 + e.order.length;
+      console.log(numberOrders);
+      document.querySelector("#sold-number").textContent = numberOrders;  
+      
+       // let pNumber = document.querySelector("#sold-number").textContent;
+       // pNumber.appendChild(numberOrders);
+
+
+    })
+
+
     let beersTemplate = document.querySelector(".beers-temp").content;
     document.querySelector(".beerinfo").textContent = '';
 
