@@ -74,12 +74,17 @@ function loadJson() {
     //bartenders section
     let mytemplate = document.querySelector(".bartenders-temp").content;
     document.querySelector(".bartenders").textContent = '';
-    jsondata.bartenders.forEach((e) => {
+   jsondata.bartenders.forEach((e) => {
         let clone = mytemplate.cloneNode(true);
 
         clone.querySelector(".name").textContent = e.name;
         clone.querySelector(".status").textContent = e.status;
-
+        if (e.status === "READY"){
+            clone.querySelector(".status").style.color = "#A930F1";
+        }
+        else if (e.status === "WORKING") {
+            clone.querySelector(".status").style.color = "#5B9FD5";
+        }
         
         //icons for showing the detailed status
         clone.querySelector(".waiting");
