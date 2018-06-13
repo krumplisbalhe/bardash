@@ -207,7 +207,7 @@ hr {
 /* GRIDS */
 .grid-container {
   display: grid;
-  grid-template-areas: 'barinfo queue queue queue bartenders bartenders' 'storage storage sell sell bartenders bartenders' 'beerinfo beerinfo beerinfo beerinfo bartenders bartenders' 'beerinfo beerinfo beerinfo beerinfo bartenders bartenders' 'beerinfo beerinfo beerinfo beerinfo bartenders bartenders';
+  grid-template-areas: 'barinfo queue queue queue bartenders bartenders' 'storage storage sell sell bartenders bartenders' 'beerinfo beerinfo beerinfo beerinfo  beerinfo beerinfo' 'beerinfo beerinfo beerinfo beerinfo  beerinfo beerinfo' 'beerinfo beerinfo beerinfo beerinfo  beerinfo beerinfo';
   grid-gap: 10px;
   padding: 10px;
   background-color: #0e131a;
@@ -309,7 +309,7 @@ div:not(.beerinfo):not(.beerinfosectioncontainer) {
 .sc-gauge  { width:100px; height:100px; background-color: transparent!important;}
 .sc-background { position:relative; height:50px; margin-bottom:5px; background-color:#fff; border-radius:150px 150px 0 0; overflow:hidden; text-align:center; }
 .sc-mask { position:absolute; top:10px; right:10px; left:10px; height:40px; border-radius:150px 150px 0 0 }
-.sc-percentage { position:absolute; top:80px; left:-100%; width:200%; height:200%; margin-left:50px; background-color:#00aeef; }
+.sc-percentage { position:absolute; top:80px; left:-100%; width:200%; height:200%; margin-left:50px; background-image: linear-gradient(to right, #00dbde 0%, #fc00ff 100%); }
 .sc-percentage { transform:rotate(100deg); transform-origin:top center; }
 .sc-min { float:left; }
 .sc-max { float:right; }
