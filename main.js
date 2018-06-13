@@ -192,7 +192,6 @@ function loadJson() {
    
     jsondata.queue.forEach((e) => {
       numberOrders = 0 + e.order.length;
-      console.log(numberOrders);
       document.querySelector("#sold-number").textContent = numberOrders;  
       
        // let pNumber = document.querySelector("#sold-number").textContent;
@@ -208,8 +207,10 @@ function loadJson() {
     jsondata.taps.forEach((tap) => {
             let clone = beersTemplate.cloneNode(true);
             clone.querySelector(".beername").textContent = tap.beer;
-            let levelperc = clone.querySelector(".levelofbeer").textContent = (tap.level / tap.capacity) * 100;
-            let levelhelper = (tap.level / tap.capacity);
+            let levelperc = (tap.level / tap.capacity) * 100;
+            let levelhelper = (tap.level / tap.capacity)*180;
+            clone.querySelector(".sc-value").textContent = levelperc;
+            clone.querySelector(".sc-percentage").style.transform = "rotate("+ `${levelhelper}` +"deg)";
             clone.querySelector("#myBtn").setAttribute("data-id", tap.beer); 
             clone.querySelector("#myBtn").addEventListener("click", openModal); 
             jsondata.beertypes.forEach((beertype) =>{
@@ -222,7 +223,9 @@ function loadJson() {
                 }
     
             });
-    
+            
+
+
             document.querySelector(".beerinfo").appendChild(clone);
             
             // When the user clicks anywhere outside of the modal, close it
