@@ -155,6 +155,7 @@ hr {
 }
 .sc-gauge{
   grid-area: graph;
+  justify-self: stretch;
 }
 
 .levelofbeer{
