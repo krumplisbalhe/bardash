@@ -1,8 +1,11 @@
 "use strict";
 document.addEventListener("DOMContentLoaded", loadJson);
-let storageArray= [];
-let nameArray = [];
+//global variables
 let jsondata;
+//for charts
+let storageArray = [];
+let nameArray = [];
+//for counting daily beer sale
 let lastIdCount = 0;
 let beersServed = 0;
 
@@ -24,7 +27,6 @@ function loadJson() {
     document.querySelector("#currenttime").textContent = "Current time: " + hours + ":" + minutes;
     //data for the queue
     const queue = jsondata.queue.length;
-    //document.querySelector("#queue-title").textContent = "Queue";
     const serving = jsondata.serving.length;
     const ChartCanva = document.getElementById("myChart");
     //creating a chart with chart.js
@@ -71,18 +73,17 @@ function loadJson() {
     document.querySelector("#bart-title").textContent = "Bartenders status";
     let mytemplate = document.querySelector(".bartenders-temp").content;
     document.querySelector(".bartenders").textContent = '';
-   
-   jsondata.bartenders.forEach((e) => {
+
+    jsondata.bartenders.forEach((e) => {
         let clone = mytemplate.cloneNode(true);
         clone.querySelector(".name").textContent = e.name;
         clone.querySelector(".status").textContent = e.status;
-        if (e.status === "READY"){
+        if (e.status === "READY") {
             clone.querySelector(".status").style.color = "#A930F1";
-        }
-        else if (e.status === "WORKING") {
+        } else if (e.status === "WORKING") {
             clone.querySelector(".status").style.color = "#5B9FD5";
         }
-        
+
         //icons for showing the detailed status
         clone.querySelector(".waiting");
         clone.querySelector(".startServing");
@@ -123,116 +124,120 @@ function loadJson() {
 
     //storage section
     let storageTemplate = document.querySelector(".storage-temp").content;
-    //document.querySelector(".storage").textContent = '';
+  
     //creating arrays in order to use them as data for the graph
     storageArray = [];
     nameArray = [];
     jsondata.storage.forEach((e) => {
-       storageArray.push(e.amount);
-       nameArray.push(e.name);
-    const ChartCanva2 = document.getElementById("myChart2").getContext("2d");
-    let gradientStroke = ChartCanva2.createLinearGradient(300, 0, 100, 0);
-    gradientStroke.addColorStop(0,"#A930F1" );
-    gradientStroke.addColorStop(1,"#00dbde" );
-    const myChart2 = new Chart(ChartCanva2, {
-        type: 'horizontalBar',
-        data: {
-            labels: nameArray,
-            datasets: [{
-                label: "Kegs in storage",
-                data: storageArray,
-                borderColor: gradientStroke,
-                pointHoverBorderWidth: 1,
-                pointRadius: 3,
-                borderWidth:5,
-                backgroundColor: gradientStroke,
-            }]
-        },
-        options: {
-            animation: false,
-            scales: {
-                   
-                xAxes: [{ticks: {
-                    autoSkip: false,
-                    beginAtZero: true,
-                    fontColor: '#fff',
-                    fontSize: 18
-                },
-                    display: true,
-                    responsive: true,
-                   
-                }],
-                yAxes: [{ ticks: {
-                    beginAtZero: true,
-                    fontColor: '#fff',
-                    fontSize: 18,
-                   // mirror: true
-                    
-                },
-                    display: true,
-                    responsive: true,
-
+        storageArray.push(e.amount);
+        nameArray.push(e.name);
+        //creating storage graph
+        const ChartCanva2 = document.getElementById("myChart2").getContext("2d");
+        let gradientStroke = ChartCanva2.createLinearGradient(300, 0, 100, 0);
+        gradientStroke.addColorStop(0, "#A930F1");
+        gradientStroke.addColorStop(1, "#00dbde");
+        const myChart2 = new Chart(ChartCanva2, {
+            type: 'horizontalBar',
+            data: {
+                labels: nameArray,
+                datasets: [{
+                    label: "Kegs in storage",
+                    data: storageArray,
+                    borderColor: gradientStroke,
+                    pointHoverBorderWidth: 1,
+                    pointRadius: 3,
+                    borderWidth: 5,
+                    backgroundColor: gradientStroke,
                 }]
             },
-        legend: {
-            labels: {
-                fontColor: '#FFFFFF',
-                fontFamily: 'Roboto'}
+            options: {
+                animation: false,
+                scales: {
 
-        }},
-        
-    });
-   
-    //how many people waiting in queue
-    document.querySelector(".waiting").textContent = `${jsondata.queue.length}`;
+                    xAxes: [{
+                        ticks: {
+                            autoSkip: false,
+                            beginAtZero: true,
+                            fontColor: '#fff',
+                            fontSize: 18
+                        },
+                        display: true,
+                        responsive: true,
 
-    //number of people served now
-    //console.log(myObject.serving);
-    document.querySelector(".sold-number").textContent = beersServed;
+                    }],
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true,
+                            fontColor: '#fff',
+                            fontSize: 18,
+                        },
+                        display: true,
+                        responsive: true,
 
-    $(function() {
+                    }]
+                },
+                legend: {
+                    labels: {
+                        fontColor: '#FFFFFF',
+                        fontFamily: 'Roboto'
+                    }
 
-        $('.sold-number').fadeOut(700, function() {
-            $('.sold-number').fadeIn(700);
+                }
+            },
+
         });
-    
-    });
+
+        //how many people waiting in queue
+        document.querySelector(".waiting").textContent = `${jsondata.queue.length}`;
+
+        //number of people served now
+        document.querySelector(".sold-number").textContent = beersServed;
+
+        //sold beers number animation
+        $(function() {
+
+            $('.sold-number').fadeOut(700, function() {
+                $('.sold-number').fadeIn(700);
+            });
+
+        });
 
 
 
-   //getting a number of beers served in total
-    jsondata.serving.forEach(customer=>{
-        if(customer.id>lastIdCount){
-            beersServed += customer.order.length;
-            lastIdCount = customer.id;}
+        //getting a number of beers served in total
+        jsondata.serving.forEach(customer => {
+            if (customer.id > lastIdCount) {
+                beersServed += customer.order.length;
+                lastIdCount = customer.id;
+            }
             console.log(beersServed);
-    });
+        });
 
+        //beer cards section
+        let beersTemplate = document.querySelector(".beers-temp").content;
+        document.querySelector(".beerinfo").textContent = '';
 
-    let beersTemplate = document.querySelector(".beers-temp").content;
-    document.querySelector(".beerinfo").textContent = '';
-
-    jsondata.taps.forEach((tap) => {
+        jsondata.taps.forEach((tap) => {
             let clone = beersTemplate.cloneNode(true);
             clone.querySelector(".beername").textContent = tap.beer;
             let levelperc = (tap.level / tap.capacity) * 100;
-            let levelhelper = (tap.level / tap.capacity)*180;
+            let levelhelper = (tap.level / tap.capacity) * 180;
             clone.querySelector(".sc-value").textContent = levelperc;
-            clone.querySelector(".sc-percentage").style.transform = "rotate("+ `${levelhelper}` +"deg)";
-            clone.querySelector("#myBtn").setAttribute("data-id", tap.beer); 
-            clone.querySelector("#myBtn").addEventListener("click", openModal); 
-            jsondata.beertypes.forEach((beertype) =>{
-         
-                if (tap.beer == beertype.name){
+            clone.querySelector(".sc-percentage").style.transform = "rotate(" + `${levelhelper}` + "deg)";
+            clone.querySelector("#myBtn").setAttribute("data-id", tap.beer);
+            clone.querySelector("#myBtn").addEventListener("click", openModal);
+            jsondata.beertypes.forEach((beertype) => {
+
+                if (tap.beer == beertype.name) {
 
                     clone.querySelector(".alcohol").textContent = "Alc.: " + beertype.alc + "%";
                     clone.querySelector(".category").textContent = beertype.category;
                     clone.querySelector(".beercardpicture").src = "labelimages/" + beertype.label;
 
                 }
-    
+
             });
-            
+
 
 
             document.querySelector(".beerinfo").appendChild(clone);
@@ -241,35 +246,39 @@ function loadJson() {
             window.onclick = function(event) {
                 if (event.target == modal) {
                     modal.style.display = "none";
-    
-                }}
+
+                }
+            }
         });
     })
 }
+
+//modal section
 let modal = document.querySelector('#myModal');
 document.querySelector(".close").addEventListener("click", closeModal);
-    function openModal() {
-        modal.style.display = "block";
-        let dataId = event.target.getAttribute("data-id");
-        jsondata.beertypes.forEach((e) => {
-            if (dataId == e.name) {
-                document.querySelector('.beerlabel').src = "labelimages/" + e.label;
-                document.querySelector('.beershortdescription').textContent = e.description.overallImpression;
-                document.querySelector('.aroma').textContent = e.description.aroma;
-                document.querySelector('.flavor').textContent = e.description.flavor;
-                document.querySelector('.mouthfeel').textContent = e.description.mouthfeel;
-                document.querySelector('.appearance').textContent = e.description.appearance;
-            }
 
-        })
-    }
-    //for closing the pop-up window
-    function closeModal() {
-        modal.style.display = "none";
-    }
+function openModal() {
+    modal.style.display = "block";
+    let dataId = event.target.getAttribute("data-id");
+    jsondata.beertypes.forEach((e) => {
+        if (dataId == e.name) {
+            document.querySelector('.beerlabel').src = "labelimages/" + e.label;
+            document.querySelector('.beershortdescription').textContent = e.description.overallImpression;
+            document.querySelector('.aroma').textContent = e.description.aroma;
+            document.querySelector('.flavor').textContent = e.description.flavor;
+            document.querySelector('.mouthfeel').textContent = e.description.mouthfeel;
+            document.querySelector('.appearance').textContent = e.description.appearance;
+        }
 
-   
+    })
+}
+//for closing the modal
+function closeModal() {
+    modal.style.display = "none";
+}
 
-    setInterval(
-        loadJson,
-        10000);
+
+
+setInterval(
+    loadJson,
+    10000);

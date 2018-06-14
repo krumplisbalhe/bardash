@@ -1,365 +1,407 @@
-
 body {
-  background-color: #0e131a;
-  color: white;
-  font-family: 'Roboto', sans-serif;
+	background-color: #0e131a;
+	color: white;
+	font-family: 'Roboto', sans-serif;
 }
 
 .logo {
-  margin: 1vw;
+	margin: 1vw;
 }
+
+
 /* BARINFO section */
 
 .barinfo {
-  grid-area: barinfo;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 400px;
-}
-#barname{
-  margin-bottom: 50px;
+	grid-area: barinfo;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 400px;
 }
 
-.smallicons{
-  width: 2em;
-  -webkit-animation: breathing 3s ease-out infinite normal;
-  animation: breathing 3s ease-out infinite normal;
-  -webkit-font-smoothing: antialiased;
-  }
+#barname {
+	margin-bottom: 50px;
+}
+
+.smallicons {
+	width: 2em;
+	-webkit-animation: breathing 3s ease-out infinite normal;
+	animation: breathing 3s ease-out infinite normal;
+	-webkit-font-smoothing: antialiased;
+}
+
 @-webkit-keyframes breathing {
-0% {
-  -webkit-transform: scale(1);
-  transform: scale(1);
+	0% {
+		-webkit-transform: scale(1);
+		transform: scale(1);
+	}
+	25% {
+		-webkit-transform: scale(1.5);
+		transform: scale(1.5);
+	}
+	60% {
+		-webkit-transform: scale(1.3);
+		transform: scale(1.3);
+	}
+	100% {
+		-webkit-transform: scale(1);
+		transform: scale(1);
+	}
 }
 
-25% {
-  -webkit-transform: scale(1.5);
-  transform: scale(1.5);
-}
-
-60% {
-  -webkit-transform: scale(1.3);
-  transform: scale(1.3);
-}
-
-100% {
-  -webkit-transform: scale(1);
-  transform: scale(1);
-}
-}
 
 /* QUEUE section*/
 
 .queue {
-  grid-area: queue;
+	grid-area: queue;
 }
 
 
 /* BARTENDERS section*/
-.bart-box{
-  grid-area: bartenders;
-  display: flex;
-  flex-direction: column;
-  width: 200px;
-  align-items: center;
+
+.bart-box {
+	grid-area: bartenders;
+	display: flex;
+	flex-direction: column;
+	width: 200px;
+	align-items: center;
 }
 
-.bticon{
-  -webkit-filter: invert(95%);
-  display: none;
-  width: 3em;
-  margin-left: 10px;
+.bticon {
+	-webkit-filter: invert(95%);
+	display: none;
+	width: 3em;
+	margin-left: 10px;
 }
 
- #myChart2 {
-  pointer-events: none;
+#myChart2 {
+	pointer-events: none;
 }
 
 .donutcontainer {
-  position: relative;
-  height: 30vh;
-  width: 30vw;
-  margin: auto;
-}
-
-hr {
-  display: block;
-  height: 1px;
-  border: 0;
-  border-top: 1px solid #ccc;
-  margin: 1em 0;
-  padding: 0;
+	position: relative;
+	height: 30vh;
+	width: 30vw;
+	margin: auto;
 }
 
 /* STORAGE section */
-.storage{
-  grid-area: storage;
-  width: 600px;
+
+.storage {
+	grid-area: storage;
+	width: 600px;
 }
 
-.sell{
-  display: grid;
-  grid-area: sell;
-  width: 300px;
-  grid-template-rows: 20% 80%;
+.sell {
+	display: grid;
+	grid-area: sell;
+	width: 300px;
+	grid-template-rows: 20% 80%;
 }
 
-.numberholder{
-  display: flex;
-  justify-content: center;
-align-items: center;
-position: relative;
+.numberholder {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: relative;
 }
 
-.sold-number{
-  font-size: 80px;
-  position: absolute;
- margin: 0px;
+.sold-number {
+	font-size: 80px;
+	position: absolute;
+	margin: 0px;
 }
 
 .dot {
-  height: 190px;
-  width: 190px;
-  border-radius: 50%;
-  background: -webkit-linear-gradient(#A930F1,#5B9FD5);
-  position: absolute;
-  align-self: center;
-  
+	height: 190px;
+	width: 190px;
+	border-radius: 50%;
+	background: -webkit-linear-gradient(#A930F1, #5B9FD5);
+	position: absolute;
+	align-self: center;
 }
 
 .innerdot {
-  height: 160px;
-  width: 160px;
-  border-radius: 50%;
-  background :#252C35;
-  position: absolute;
+	height: 160px;
+	width: 160px;
+	border-radius: 50%;
+	background: #252C35;
+	position: absolute;
 }
 
-#myChart2{
-  height: 200px;
-  width: 700px;
+#myChart2 {
+	height: 200px;
+	width: 700px;
 }
+
 
 /* BEERINFO section */
 
 .beerinfo {
   grid-area: beerinfo;
-}
-
-.beerinfo {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  background-color: #0e131a;
-  padding-top: 0px;
-  padding-bottom: 0px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	background-color: #0e131a;
+	padding-top: 0px;
+	padding-bottom: 0px;
 }
 
 .beerinfo>div {
-  width: 29%;
-  height: 250px;
-  justify-content: space-around;
-  margin-bottom: 20px;
+	width: 29%;
+	height: 250px;
+	justify-content: space-around;
+	margin-bottom: 20px;
 }
 
 .beerlevel {
-  background-color: #953852;
-  width: 2px;
-  height: 5px;
-  display: flex;
-  transition: all 3s ease-in;
-  border-radius: 0px;
-  padding: 0px;
+	background-color: #953852;
+	width: 2px;
+	height: 5px;
+	display: flex;
+	transition: all 3s ease-in;
+	border-radius: 0px;
+	padding: 0px;
 }
 
-.onebeer{
-  display: grid;
-  grid-template-columns: 30% 40% 30%;
-  grid-template-rows: 20% 50% 10% 20%;
-  grid-gap: 4px 4px;
-  justify-items: center;
-  align-items: stretch;
-  grid-template-areas: 'graph category alcohol' 'graph pic . ' ' . pic . ' '. beername but';
-}
-.gauge-box{
-  grid-area: graph;
-  padding:0px!important;
-  align-self: start;
-  justify-self: center;
+.onebeer {
+	display: grid;
+	grid-template-columns: 30% 40% 30%;
+	grid-template-rows: 20% 50% 10% 20%;
+	grid-gap: 4px 4px;
+	justify-items: center;
+	align-items: stretch;
+	grid-template-areas: 'graph category alcohol' 'graph pic . ' ' . pic . ' '. beername but';
 }
 
-.levelofbeer{
-  grid-area: percentage;
-  margin: 0;
+.gauge-box {
+	grid-area: graph;
+	padding: 0px!important;
+	align-self: start;
+	justify-self: center;
 }
 
-.alcohol{
-  grid-area: alcohol;
-  margin:0;
-  align-self: center;
+.levelofbeer {
+	grid-area: percentage;
+	margin: 0;
 }
 
-.beername{
-  grid-area: beername;
-  margin:0;
-  align-self: start;
-  align-self: center;
-  font-size: 1.2em;
-  
+.alcohol {
+	grid-area: alcohol;
+	margin: 0;
+	align-self: center;
 }
 
-.beercardpiure{
-  grid-area: pic;
-  
+.beername {
+	grid-area: beername;
+	margin: 0;
+	align-self: start;
+	align-self: center;
+	font-size: 1.2em;
 }
 
-.category{
-  grid-area: category;
-font-size: 0.8em;
+.beercardpiure {
+	grid-area: pic;
 }
 
-.buttoncontainer{
-  grid-area: but;
-  align-self: end;
+.category {
+	grid-area: category;
+	font-size: 0.8em;
+}
+
+.buttoncontainer {
+	grid-area: but;
+	align-self: end;
 }
 
 #myBtn {
-  border-image-slice: 1;
-  border-width: 4px;
-  color: white;
-  margin: 0 auto;
-  padding: 4px;
-  position: relative;
-  text-decoration: none;
-  text-transform: uppercase;
-  max-width: 80px;
-  background-color: transparent;
-  border-radius: 2vw;
-  line-height: 2;
-  border: 4px solid #b966d6;
-  /* just to show box-shadow still works fine */
-  box-shadow: 0 3px 3px black, inset 0 0 20px #A930F1;
-  height: auto;
+	border-image-slice: 1;
+	border-width: 4px;
+	color: white;
+	margin: 0 auto;
+	padding: 4px;
+	position: relative;
+	text-decoration: none;
+	text-transform: uppercase;
+	max-width: 80px;
+	background-color: transparent;
+	border-radius: 2vw;
+	line-height: 2;
+	border: 4px solid #b966d6;
+	/* just to show box-shadow still works fine */
+	box-shadow: 0 3px 3px black, inset 0 0 20px #A930F1;
+	height: auto;
 }
 
-.beercardpicture{
- display: block;
- max-height: 100%;
- width: auto;
+.beercardpicture {
+	display: block;
+	max-height: 100%;
+	width: auto;
 }
+
 
 /* GRIDS */
-.grid-container {
-  display: grid;
-  grid-template-areas: 'barinfo queue queue queue bartenders bartenders' 'storage storage sell sell bartenders bartenders' 'beerinfo beerinfo beerinfo beerinfo  beerinfo beerinfo' 'beerinfo beerinfo beerinfo beerinfo  beerinfo beerinfo' 'beerinfo beerinfo beerinfo beerinfo  beerinfo beerinfo';
-  grid-gap: 10px;
-  padding: 10px;
-  background-color: #0e131a;
-  grid-gap: 30px;
-  margin-left: 30px;
-  margin-right: 30px;}
 
+.grid-container {
+	display: grid;
+	grid-template-areas: 'barinfo queue queue queue bartenders bartenders' 'storage storage sell sell bartenders bartenders' 'beerinfo beerinfo beerinfo beerinfo  beerinfo beerinfo' 'beerinfo beerinfo beerinfo beerinfo  beerinfo beerinfo' 'beerinfo beerinfo beerinfo beerinfo  beerinfo beerinfo';
+	grid-gap: 10px;
+	padding: 10px;
+	background-color: #0e131a;
+	grid-gap: 30px;
+	margin-left: 30px;
+	margin-right: 30px;
+}
 
 div {
-  padding: 20px 0;
-  background: #252c35;
-  border-radius: 15px;
-  text-align: center;
+	padding: 20px 0;
+	background: #252c35;
+	border-radius: 15px;
+	text-align: center;
 }
 
 div:not(.beerinfo):not(.beerinfosectioncontainer) {
-  padding: 1em;
+	padding: 1em;
 }
+
 
 /* POP UP window (background) */
 
 .modal {
-  display: none;
-  /* Hidden by default */
-  position: fixed;
-  /* Stay in place */
-  z-index: 1;
-  /* Sit on top */
-  padding-top: 100px;
-  /* Location of the box */
-  left: 0;
-  top: 0;
-  width: 100%;
-  /* Full width */
-  height: 100%;
-  /* Full height */
-  overflow: auto;
-  /* Enable scroll if needed */
-  background-color: rgb(0, 0, 0);
-  /* Fallback color */
-  background-color: rgba(0, 0, 0, 0.9);
-  /* Black w/ opacity */
+	display: none;
+	/* Hidden by default */
+	position: fixed;
+	/* Stay in place */
+	z-index: 1;
+	/* Sit on top */
+	padding-top: 100px;
+	/* Location of the box */
+	left: 0;
+	top: 0;
+	width: 100%;
+	/* Full width */
+	height: 100%;
+	/* Full height */
+	overflow: auto;
+	/* Enable scroll if needed */
+	background-color: rgb(0, 0, 0);
+	/* Fallback color */
+	background-color: rgba(0, 0, 0, 0.9);
+	/* Black w/ opacity */
 }
+
 
 /* POP UP Content */
 
 .modal-content {
-  margin: auto;
-  margin-top: 4em;
-  padding: 20px;
-  width: 80%;
-  overflow: scroll;
+	margin: auto;
+	margin-top: 4em;
+	padding: 20px;
+	width: 80%;
+	overflow: scroll;
 }
 
-.readmore{
-  text-align: center;
-  display:grid;
-  grid-template-columns: 30% 70%;
-  grid-template-areas:  title texti texti texti;
-
-}
-.texti{
-  font-size: 14px;
-  text-align: left;
-}
-.title{
-  justify-self: center;
-  font-size: 1.5em;
-  color: rgb(128, 128, 128);
+.readmore {
+	text-align: center;
+	display: grid;
+	grid-template-columns: 30% 70%;
+	grid-template-areas: title texti texti texti;
 }
 
-.beerlabel{
-  max-width:30%;
-  margin: 2em;
-  float: left;
+.texti {
+	font-size: 14px;
+	text-align: left;
+}
 
+.title {
+	justify-self: center;
+	font-size: 1.5em;
+	color: rgb(128, 128, 128);
+}
+
+.beerlabel {
+	max-width: 30%;
+	margin: 2em;
+	float: left;
 }
 
 
 /* The Close Button */
 
 .close {
-  color: rgb(238, 96, 156);
-  /* Chrome10-25,Safari5.1-6 */
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
+	color: rgb(238, 96, 156);
+	/* Chrome10-25,Safari5.1-6 */
+	float: right;
+	font-size: 28px;
+	font-weight: bold;
 }
 
 .close:hover,
 .close:focus {
-  color: rgb(185, 102, 214);
-  text-decoration: none;
-  cursor: pointer;
+	color: rgb(185, 102, 214);
+	text-decoration: none;
+	cursor: pointer;
 }
 
 #chartdiv {
-	width		: 100%;
-	height		: 200px;
-	font-size	: 11px;
+	width: 100%;
+	height: 200px;
+	font-size: 11px;
 }
 
-.sc-gauge  { width:50px; height:50px; background-color: transparent!important; padding:0px !important;}
-.sc-background { position:relative; height:10px; margin-bottom:0px; background-color:#fff; border-radius:150px 150px 0 0; overflow:hidden; text-align:center; }
-.sc-mask { position:absolute; top:5px; right:5px; left:5px; height:20px; border-radius:150px 150px 0 0 }
-.sc-percentage { position:absolute; top:42px; left:-100%; width:200%; height:200%; margin-left:5px; background-image: linear-gradient(to right, #00dbde 0%, #fc00ff 100%); }
-.sc-percentage { transform:rotate(100deg); transform-origin:top center; }
-.sc-min { float:left; }
-.sc-max { float:right; }
-.sc-value { position:absolute; left:0; width:100%;  font-size:20px; font-weight:700 }
+.sc-gauge {
+	width: 50px;
+	height: 50px;
+	background-color: transparent!important;
+	padding: 0px !important;
+}
+
+.sc-background {
+	position: relative;
+	height: 10px;
+	margin-bottom: 0px;
+	background-color: #fff;
+	border-radius: 150px 150px 0 0;
+	overflow: hidden;
+	text-align: center;
+}
+
+.sc-mask {
+	position: absolute;
+	top: 5px;
+	right: 5px;
+	left: 5px;
+	height: 20px;
+	border-radius: 150px 150px 0 0
+}
+
+.sc-percentage {
+	position: absolute;
+	top: 42px;
+	left: -100%;
+	width: 200%;
+	height: 200%;
+	margin-left: 5px;
+	background-image: linear-gradient(to right, #00dbde 0%, #fc00ff 100%);
+}
+
+.sc-percentage {
+	transform: rotate(100deg);
+	transform-origin: top center;
+}
+
+.sc-min {
+	float: left;
+}
+
+.sc-max {
+	float: right;
+}
+
+.sc-value {
+	position: absolute;
+	left: 0;
+	width: 100%;
+	font-size: 20px;
+	font-weight: 700
+}
