@@ -57,7 +57,6 @@ body {
 
 .queue {
   grid-area: queue;
-  justify-self: center;
 }
 
 
@@ -69,9 +68,7 @@ body {
   width: 200px;
   align-items: center;
 }
-.status{
-  font-weight: 900;
-}
+
 .bticon{
   -webkit-filter: invert(95%);
   display: none;
@@ -82,15 +79,12 @@ body {
 
 #myChart, #myChart2 {
   pointer-events: none;
- 
 }
 
 .donutcontainer {
   position: relative;
   height: 30vh;
   width: 30vw;
-  margin: 0 auto;
- 
 }
 
 hr {
@@ -191,8 +185,7 @@ hr {
 
 .buttoncontainer{
   grid-area: but;
-  padding: 0!important;
-  justify-self: end;
+  padding: 0;
 }
 
 #myBtn {
@@ -322,12 +315,11 @@ div:not(.beerinfo):not(.beerinfosectioncontainer) {
 	font-size	: 11px;
 }
 
-
 .sc-gauge  { width:50px; height:50px; background-color: transparent!important; padding:0px !important;}
 .sc-background { position:relative; height:10px; margin-bottom:0px; background-color:#fff; border-radius:150px 150px 0 0; overflow:hidden; text-align:center; }
-.sc-mask { position:absolute; top:5px; right:5px; left:5px; height:20px; border-radius:100px 100px 0 0 }
-.sc-percentage { position:absolute; top:42px; left:-100%; width:200%; height:200%; margin-left:5px; background-image: linear-gradient(to right, #00dbde 0%, #fc00ff 100%); }
-.sc-percentage { transform-origin:top center; }
+.sc-mask { position:absolute; top:5px; right:5px; left:5px; height:20px; border-radius:150px 150px 0 0 }
+.sc-percentage { position:absolute; top:50px; left:-100%; width:200%; height:200%; margin-left:50px; background-image: linear-gradient(to right, #00dbde 0%, #fc00ff 100%); }
+.sc-percentage { transform:rotate(100deg); transform-origin:top center; }
 .sc-min { float:left; }
 .sc-max { float:right; }
 .sc-value { position:absolute; left:0; width:100%;  font-size:20px; font-weight:700 }
