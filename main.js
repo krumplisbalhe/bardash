@@ -6,9 +6,6 @@ let jsondata;
 let lastIdCount = 0;
 let beersServed = 0;
 
-//logo animation
-const logo = document.querySelector(".logo");
-TweenLite.to(logo, 2, {width:"10%",opacity:1});
 
 function loadJson() {
     let data = FooBar.getData();
@@ -19,10 +16,6 @@ function loadJson() {
     console.log(jsondata);
     //bar section
     document.querySelector("#barname").textContent = "Welcome to " + jsondata.bar.name;
-    TweenLite.to("#barname", 2, {
-        color: "#808080",
-        scale: 0.9
-    });
     document.querySelector("#closing").textContent = "Closing time: " + jsondata.bar.closingTime.slice(0, -3);
     //showing current time
     const now = new Date();
