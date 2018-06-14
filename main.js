@@ -3,7 +3,8 @@ document.addEventListener("DOMContentLoaded", loadJson);
 let storageArray= [];
 let nameArray = [];
 let jsondata;
-let numberOrders = 0;
+let lastIdCount = 0;
+let beersServed = 0;
 
 //logo animation
 const logo = document.querySelector(".logo");
@@ -188,19 +189,31 @@ function loadJson() {
         }},
         
     });
-    
-    //let sellTemplate = document.querySelector("#sell-temp").content;
-    let mydiv = document.querySelector(".sell");
    
-    jsondata.queue.forEach((e) => {
-      numberOrders =  + e.order.length;
-      document.querySelector("#sold-number").textContent = numberOrders;  
-      
-       // let pNumber = document.querySelector("#sold-number").textContent;
-       // pNumber.appendChild(numberOrders);
+    //how many people waiting in queue
+    document.querySelector(".waiting").textContent = `${jsondata.queue.length}`;
+
+    //number of people served now
+    //console.log(myObject.serving);
+    document.querySelector(".sold-number").textContent = beersServed;
+
+    $(function() {
+
+        $('.sold-number').fadeOut(700, function() {
+            $('.sold-number').fadeIn(700);
+        });
+    
+    });
 
 
-    })
+
+   //getting a number of beers served in total
+    jsondata.serving.forEach(customer=>{
+        if(customer.id>lastIdCount){
+            beersServed += customer.order.length;
+            lastIdCount = customer.id;}
+            console.log(beersServed);
+    });
 
 
     let beersTemplate = document.querySelector(".beers-temp").content;
