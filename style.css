@@ -176,11 +176,11 @@ position: relative;
 .onebeer{
   display: grid;
   grid-template-columns: 30% 40% 30%;
-  grid-template-rows: 20% 40% 20% 10% 10%;
+  grid-template-rows: 20% 50% 10% 20%;
   grid-gap: 4px 4px;
   justify-items: center;
   align-items: stretch;
-  grid-template-areas: 'graph beername alcohol' 'graph pic .' '. pic .' '. . .' '. category but';
+  grid-template-areas: 'graph category alcohol' 'graph pic . ' ' . pic . ' '. beername but';
 }
 .gauge-box{
   grid-area: graph;
@@ -205,16 +205,17 @@ position: relative;
   margin:0;
   align-self: start;
   align-self: center;
-  font-size: 1em;
+  font-size: 1.2em;
   
 }
 
-.beercardpicture{
+.beercardpiure{
   grid-area: pic;
   
 }
 
 .category{
+  grid-area: category;
 font-size: 0.8em;
 }
 
@@ -327,7 +328,9 @@ div:not(.beerinfo):not(.beerinfosectioncontainer) {
   max-width:30%;
   margin: 2em;
   float: left;
+
 }
+
 
 /* The Close Button */
 
