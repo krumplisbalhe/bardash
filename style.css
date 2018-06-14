@@ -104,8 +104,26 @@ hr {
 }
 
 .sell{
+  display: flex;
   grid-area: sell;
   width: 300px;
+justify-content: center;
+align-items: center;
+}
+
+.sold-number{
+  font-size: 80px;
+  margin:0;
+  position: relative;
+  
+}
+
+.dot {
+  height: 190px;
+  width: 190px;
+  border-radius: 50%;
+  background: -webkit-linear-gradient(#A930F1,#5B9FD5);
+  position: absolute;
 }
 
 #myChart2{
