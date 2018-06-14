@@ -130,7 +130,7 @@ hr {
 
 .beerinfo>div {
   width: 29%;
-  height: 200px;
+  height: 250px;
   justify-content: space-around;
   margin-bottom: 20px;
 }
@@ -148,11 +148,11 @@ hr {
 .onebeer{
   display: grid;
   grid-template-columns: 30% 40% 30%;
-  grid-template-rows: 20% 40% 20% 20%;
+  grid-template-rows: 20% 40% 20% 10% 10%;
   grid-gap: 4px 4px;
   justify-items: center;
   align-items: stretch;
-  grid-template-areas: 'graph category alcohol' 'graph pic .' '. pic .' '. beername but';
+  grid-template-areas: 'graph category alcohol' 'graph pic .' '. pic .' '. beername .' '. . but';
 }
 .gauge-box{
   grid-area: graph;
@@ -190,7 +190,7 @@ font-size: 0.8em;
 
 .buttoncontainer{
   grid-area: but;
-  padding: 0;
+  align-self: end;
 }
 
 #myBtn {
@@ -198,7 +198,7 @@ font-size: 0.8em;
   border-width: 4px;
   color: white;
   margin: 0 auto;
-  padding: 2px;
+  padding: 4px;
   position: relative;
   text-decoration: none;
   text-transform: uppercase;
@@ -323,7 +323,7 @@ div:not(.beerinfo):not(.beerinfosectioncontainer) {
 .sc-gauge  { width:50px; height:50px; background-color: transparent!important; padding:0px !important;}
 .sc-background { position:relative; height:10px; margin-bottom:0px; background-color:#fff; border-radius:150px 150px 0 0; overflow:hidden; text-align:center; }
 .sc-mask { position:absolute; top:5px; right:5px; left:5px; height:20px; border-radius:150px 150px 0 0 }
-.sc-percentage { position:absolute; top:50px; left:-100%; width:200%; height:200%; margin-left:50px; background-image: linear-gradient(to right, #00dbde 0%, #fc00ff 100%); }
+.sc-percentage { position:absolute; top:42px; left:-100%; width:200%; height:200%; margin-left:5px; background-image: linear-gradient(to right, #00dbde 0%, #fc00ff 100%); }
 .sc-percentage { transform:rotate(100deg); transform-origin:top center; }
 .sc-min { float:left; }
 .sc-max { float:right; }
