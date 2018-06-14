@@ -6,23 +6,19 @@ body {
 }
 
 .logo {
-  width: 0%;
   margin: 1vw;
-  opacity:0;
 }
 /* BARINFO section */
 
 .barinfo {
   grid-area: barinfo;
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  font-size: 0.7em;
   width: 400px;
 }
-
-#barname {
-  color: #ffffff;
-  font-size: 2.5em;
-  margin: 1em;
+#barname{
+  margin-bottom: 50px;
 }
 
 .smallicons{
@@ -103,18 +99,23 @@ hr {
 }
 
 .sell{
-  display: flex;
+  display: grid;
   grid-area: sell;
   width: 300px;
-justify-content: center;
+  grid-template-rows: 20% 80%;
+}
+
+.numberholder{
+  display: flex;
+  justify-content: center;
 align-items: center;
+position: relative;
 }
 
 .sold-number{
   font-size: 80px;
-  margin:0;
-  position: relative;
-  
+  position: absolute;
+ margin: 0px;
 }
 
 .dot {
@@ -122,6 +123,16 @@ align-items: center;
   width: 190px;
   border-radius: 50%;
   background: -webkit-linear-gradient(#A930F1,#5B9FD5);
+  position: absolute;
+  align-self: center;
+  
+}
+
+.innerdot {
+  height: 160px;
+  width: 160px;
+  border-radius: 50%;
+  background :#252C35;
   position: absolute;
 }
 
