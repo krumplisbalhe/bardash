@@ -30,6 +30,7 @@ function loadJson() {
     document.querySelector("#currenttime").textContent = "Current time: " + hours + ":" + minutes;
     //data for the queue
     const queue = jsondata.queue.length;
+    //document.querySelector("#queue-title").textContent = "Queue";
     const serving = jsondata.serving.length;
     const ChartCanva = document.getElementById("myChart");
     //creating a chart with chart.js
@@ -51,7 +52,7 @@ function loadJson() {
             }]
         },
         options: {
-            animation:{easing: 'easeInCirc'},
+            easing: 'easeInCirc',
             responsive: true,
             scales: {
                 xAxes: [{
@@ -73,11 +74,12 @@ function loadJson() {
 
     });
     //bartenders section
+    document.querySelector("#bart-title").textContent = "Bartenders status";
     let mytemplate = document.querySelector(".bartenders-temp").content;
     document.querySelector(".bartenders").textContent = '';
+   
    jsondata.bartenders.forEach((e) => {
         let clone = mytemplate.cloneNode(true);
-
         clone.querySelector(".name").textContent = e.name;
         clone.querySelector(".status").textContent = e.status;
         if (e.status === "READY"){
@@ -138,13 +140,12 @@ function loadJson() {
     let gradientStroke = ChartCanva2.createLinearGradient(300, 0, 100, 0);
     gradientStroke.addColorStop(0,"#A930F1" );
     gradientStroke.addColorStop(1,"#00dbde" );
-
     const myChart2 = new Chart(ChartCanva2, {
         type: 'horizontalBar',
         data: {
             labels: nameArray,
             datasets: [{
-                label: "Beer avability",
+                label: "Kegs in storage",
                 data: storageArray,
                 borderColor: gradientStroke,
                 pointHoverBorderWidth: 1,
@@ -185,7 +186,9 @@ function loadJson() {
                 fontFamily: 'Roboto'}
 
         }},
+        
     });
+    
     //let sellTemplate = document.querySelector("#sell-temp").content;
     let mydiv = document.querySelector(".sell");
    
