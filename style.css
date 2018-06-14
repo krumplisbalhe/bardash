@@ -85,6 +85,7 @@ body {
   position: relative;
   height: 30vh;
   width: 30vw;
+  margin: auto;
 }
 
 hr {
@@ -151,7 +152,7 @@ hr {
   grid-gap: 4px 4px;
   justify-items: center;
   align-items: stretch;
-  grid-template-areas: 'graph . alcohol' 'graph pic .' '. pic .' '. beername but';
+  grid-template-areas: 'graph category alcohol' 'graph pic .' '. pic .' '. beername but';
 }
 .gauge-box{
   grid-area: graph;
@@ -181,6 +182,10 @@ hr {
 .beercardpicture{
   grid-area: pic;
   
+}
+
+.category{
+font-size: 0.8em;
 }
 
 .buttoncontainer{
