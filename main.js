@@ -105,7 +105,7 @@ function loadJson() {
         } else if (e.statusDetail === "releaseTap") {
             clone.querySelector(".releaseTap").style.display = "block";
         } else if (e.statusDetail === "pourBeer") {
-            clone.querySelector(".pourBeer").style.display = "block";
+            clone.querySelector(".pourbeer").style.display = "block";
         } else if (e.statusDetail === "receivePayment") {
             clone.querySelector(".receivePayment").style.display = "block";
         } else if (e.statusDetail === "endServing") {
@@ -217,6 +217,7 @@ function loadJson() {
                 if (tap.beer == beertype.name){
 
                     clone.querySelector(".alcohol").textContent = "Alc.: " + beertype.alc + "%";
+                    clone.querySelector(".category").textContent = beertype.category;
                     clone.querySelector(".beercardpicture").src = "labelimages/" + beertype.label;
 
                 }
