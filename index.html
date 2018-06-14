@@ -18,20 +18,25 @@
     <div class="grid-container">
         <!-- Bar info section -->
         <div class="barinfo">
-            <h1 id="barname"></h1>
+            <h1 class="title" id="barname"></h1>
             <img src="img/closing.png" class="smallicons"> <h2 id="closing"></h2>
              <img src="img/current time.png" class="smallicons"><h2 id="currenttime"></h2>
         </div>
         <!-- Queue section with the chart -->
         <div class="queue">
+            <h1 class="title">Queue</h1>
             <div class="donutcontainer">
                 <canvas id="myChart"></canvas>
             </div>
         </div>
         <!-- Bartenders section -->
-        <div class="bartenders">
+       
+        <div class="bart-box">
+                <h1 class="title" id="bart-title"></h1>
+           <div class="bartenders"></div>    
         </div>
-        <template class="bartenders-temp">
+       
+        <template class="bartenders-temp">          
             <h2 class="name"></h2>
             <p class="status"></p>
             <img class="waiting bticon" src="img/bartender.svg">
@@ -42,11 +47,11 @@
             <img class="receivePayment bticon" src="img/card.svg">
             <img class="endServing bticon" src="img/fullbeer.svg">
             <img class="replaceKeg bticon" src="img/keg.svg">
-            <hr/>
         </template>
 
         <!-- Storage section with the chart -->
         <div class="storage">
+            <h1 class="title">Beer availability</h1>
             <div class="barcontainer">
                 <canvas id="myChart2"></canvas>
             </div>
@@ -71,8 +76,9 @@
                     <p class="alcohol"></p>
                     
                     <img src="" class="beercardpicture">
-              
+                    <h4 class="beername"></h4>
                     <p class="category"></p>
+                   
                    <div class="gauge-box">
                     <div class="sc-gauge">
                         <div class="sc-background">
@@ -82,11 +88,12 @@
                         </div>
                     </div>
                 </div>
-                <h4 class="beername"></h4>
+               
                 <!-- Pop-up window section -->
                 <!-- Open the Pop-up with this button -->
+                
                 <div class= "buttoncontainer">
-                <button id="myBtn">More info</button>
+                <button id="myBtn">Info</button>
                 </div>
                
             </div>

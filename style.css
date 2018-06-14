@@ -14,15 +14,15 @@ body {
 
 .barinfo {
   grid-area: barinfo;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
   font-size: 0.7em;
+  width: 400px;
 }
 
 #barname {
   color: #ffffff;
+  font-size: 2.5em;
+  margin: 1em;
 }
 
 .smallicons{
@@ -61,7 +61,7 @@ body {
 
 
 /* BARTENDERS section*/
-.bartenders {
+.bart-box{
   grid-area: bartenders;
   display: flex;
   flex-direction: column;
@@ -73,11 +73,10 @@ body {
   -webkit-filter: invert(95%);
   display: none;
   width: 3em;
-  margin-bottom: 21px;
+  margin-left: 10px;
 }
 
-
-#myChart, #myChart2 {
+ #myChart2 {
   pointer-events: none;
 }
 
@@ -170,7 +169,7 @@ align-items: center;
   grid-gap: 4px 4px;
   justify-items: center;
   align-items: stretch;
-  grid-template-areas: 'graph category alcohol' 'graph pic .' '. pic .' '. beername .' '. . but';
+  grid-template-areas: 'graph beername alcohol' 'graph pic .' '. pic .' '. . .' '. category but';
 }
 .gauge-box{
   grid-area: graph;
@@ -195,6 +194,8 @@ align-items: center;
   margin:0;
   align-self: start;
   align-self: center;
+  font-size: 1em;
+  
 }
 
 .beercardpicture{
@@ -252,6 +253,7 @@ div {
   padding: 20px 0;
   background: #252c35;
   border-radius: 15px;
+  text-align: center;
 }
 
 div:not(.beerinfo):not(.beerinfosectioncontainer) {
@@ -306,7 +308,8 @@ div:not(.beerinfo):not(.beerinfosectioncontainer) {
 }
 .title{
   justify-self: center;
-  font-size: 1em;
+  font-size: 1.5em;
+  color: rgb(128, 128, 128);
 }
 
 .beerlabel{
